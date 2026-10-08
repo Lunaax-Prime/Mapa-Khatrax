@@ -214,12 +214,14 @@
     '<aside class="map-dossier" id="map-dossier" hidden aria-label="Arquivo do corpo celeste">',
     '<div class="map-dossier-top">',
     '<p class="map-dossier-eyebrow">ARCHIVUM MECHANICUS / ACCESS SANCTIFIED</p>',
-    '<button type="button" class="map-dossier-close" id="map-dossier-close" aria-label="Selar arquivo" title="Selar arquivo">×</button>',
+    '<button type="button" class="map-dossier-close" id="map-dossier-close" aria-label="Fechar arquivo e voltar ao mapa" title="Voltar ao mapa (Esc)"><span aria-hidden="true">×</span><span>FECHAR</span></button>',
     '</div>',
+    '<div class="map-dossier-content" id="map-dossier-content">',
     '<h2 class="map-dossier-title" id="map-dossier-title"></h2>',
     '<p class="map-dossier-kind" id="map-dossier-kind"></p>',
     '<p class="map-dossier-body" id="map-dossier-body"></p>',
     '<p class="map-dossier-faction" id="map-dossier-faction"></p>',
+    '</div>',
     '</aside>'
   ].join('');
 
@@ -229,6 +231,7 @@
 
   var svgRoot = layer.querySelector(".map-svg");
   var dossier = document.getElementById("map-dossier");
+  var dossierContent = document.getElementById("map-dossier-content");
   var titleNode = document.getElementById("map-dossier-title");
   var kindNode = document.getElementById("map-dossier-kind");
   var bodyNode = document.getElementById("map-dossier-body");
@@ -271,6 +274,8 @@
       node.setAttribute("aria-pressed",String(isActive));
     });
     dossier.hidden = false;
+    // Always reveal the title and the closing control when a new file opens.
+    dossierContent.scrollTop = 0;
   }
 
   svgRoot.addEventListener("click", function(event) {
@@ -285,6 +290,15 @@
     openPanel(target.getAttribute("data-world"));
   });
   closeButton.addEventListener("click", function() { closePanel(true); });
+
+  // Clicking empty cartographic space dismisses the dossier. Clicking a
+  // visible world still opens its archive, even while another is selected.
+  document.addEventListener("pointerdown", function(event) {
+    if (dossier.hidden || dossier.contains(event.target)) return;
+    if (event.target.closest && event.target.closest("[data-world]")) return;
+    closePanel(false);
+  });
+
   document.addEventListener("keydown", function(event) {
     if (event.key === "Escape" && !dossier.hidden) closePanel(true);
   });
