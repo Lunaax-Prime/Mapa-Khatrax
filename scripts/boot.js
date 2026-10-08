@@ -18,7 +18,7 @@
 
   const reducedMotion = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const duration = reducedMotion ? 650 : 4900;
+  const duration = 10500; // Noosphere: fim da introducao em 10,5 segundos.
 
   // Trechos curtos reconheciveis e novas litanias originais para o Mapa Khatrax.
   // Referencias: Lexicanum (Adeptus Mechanicus Quotes e Portal:Quotes).
@@ -90,13 +90,15 @@
     window.setTimeout(function () {
       overlay.hidden = true;
       overlay.setAttribute("aria-hidden", "true");
-    }, reducedMotion ? 0 : 830);
+    }, 0);
   }
 
   function animate(now) {
     if (finished) return;
     if (start === null) start = now;
-    const elapsed = now - start;
+    const audio = document.getElementById("khatrax-soundtrack");
+    const elapsed = audio && !audio.paused && Number.isFinite(audio.currentTime)
+      ? audio.currentTime * 1000 : now - start;
     const ratio = Math.min(1, elapsed / duration);
     // Progresso visual nao indica carregamento de dados reais.
     drawProgress(100 * ratio);
@@ -127,13 +129,9 @@
     }
   });
 
-  if (reducedMotion) {
-    drawProgress(100);
-    revealTimeout = window.setTimeout(complete, duration);
-  } else {
-    drawProgress(0);
-    quoteTimeout = window.setTimeout(secondLitany, 2500);
-    raf = requestAnimationFrame(animate);
-    revealTimeout = window.setTimeout(complete, duration + 600);
-  }
+  drawProgress(0);
+  if (!reducedMotion) quoteTimeout = window.setTimeout(secondLitany, 4500);
+  raf = requestAnimationFrame(animate);
+  // Limite temporal se o navegador nao permitir iniciar o audio.
+  revealTimeout = window.setTimeout(complete, duration);
 }());
