@@ -1,0 +1,329 @@
+/* Rito de inicializacao do terminal Khatrax — vinheta do Cult Mechanicus. */
+body.booting .terminal {
+  animation: none;
+  opacity: 0;
+  visibility: hidden;
+}
+body.booting .control,
+body.booting .rotate-note {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.boot-screen[hidden] { display: none !important; }
+.boot-screen {
+  --bronze: #a48656;
+  --bronze-bright: #d5b98a;
+  --blood: #aa2830;
+  --blood-light: #f15c58;
+  --phosphor: #96dba4;
+  position: fixed;
+  inset: 0;
+  isolation: isolate;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: auto;
+  padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right))
+           max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  color: #e5d9b9;
+  background:
+    radial-gradient(ellipse 36% 46% at 50% 45%, rgba(128, 21, 27, .24), transparent 100%),
+    radial-gradient(ellipse 90% 90% at 50% 50%, #161010 0%, #070a08 55%, #020302 100%);
+  opacity: 1;
+}
+.boot-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 3px, #ddcabd06 4px 5px),
+    repeating-linear-gradient(90deg, transparent 0 138px, #aa6a4420 139px 140px),
+    repeating-linear-gradient(0deg, transparent 0 138px, #aa6a4420 139px 140px);
+  -webkit-mask-image: radial-gradient(ellipse at center, #0008 0%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, #0008 0%, transparent 72%);
+}
+.boot-screen::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  border: clamp(7px, 1.4vw, 19px) solid #070808;
+  box-shadow: inset 0 0 0 2px #655037, inset 0 0 90px 12px #000, 0 0 0 1px #a68645;
+  pointer-events: none;
+}
+.boot-console {
+  position: relative;
+  width: min(100%, 820px);
+  min-height: min(590px, calc(100dvh - 72px));
+  padding: clamp(24px, 4.4vw, 48px) clamp(22px, 6vw, 72px) clamp(22px, 3.3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: clamp(18px, 2.6vh, 30px);
+  text-align: center;
+  background:
+    linear-gradient(90deg, #0a0d0b 0%, transparent 17%, transparent 83%, #0a0d0b 100%),
+    radial-gradient(circle at 50% 41%, #2b1112dd 0%, #0b1010eb 64%);
+  border: 1px solid #6c5b3e;
+  outline: 1px solid #221e17;
+  outline-offset: 5px;
+  box-shadow:
+    inset 0 0 0 5px #0a0e0b,
+    inset 0 0 0 6px #4b402f,
+    inset 0 0 55px #070504d9,
+    0 0 80px #050302bd;
+}
+.boot-console::before,
+.boot-console::after {
+  position: absolute;
+  content: "";
+  top: 11px;
+  width: 40px;
+  height: 40px;
+  border-top: 3px solid var(--bronze-bright);
+  pointer-events: none;
+}
+.boot-console::before {
+  left: 11px;
+  border-left: 3px solid var(--bronze-bright);
+}
+.boot-console::after {
+  right: 11px;
+  border-right: 3px solid var(--bronze-bright);
+}
+.boot-header {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: 9px;
+}
+.boot-tracery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 560px);
+  gap: 12px;
+  color: #d3ad77;
+}
+.boot-tracery::before, .boot-tracery::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, #a18756);
+}
+.boot-tracery::after { transform: rotate(180deg); }
+.boot-astrolabe {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #b1976b;
+  letter-spacing: .34em;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.boot-id {
+  color: #867558;
+  letter-spacing: .24em;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+.boot-heart {
+  display: grid;
+  place-items: center;
+  gap: 4px;
+}
+.boot-seal-wrap {
+  width: clamp(160px, 29vh, 258px);
+  max-width: 48vw;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.boot-seal-wrap::before,
+.boot-seal-wrap::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.boot-seal-wrap::before {
+  inset: -12%;
+  border: 1px solid #a37e4b54;
+  box-shadow: 0 0 28px #6e1e1f3d, inset 0 0 24px #781d2024;
+  background: repeating-conic-gradient(from 0deg, transparent 0deg 14deg, #aa805b 14.5deg 15deg);
+  -webkit-mask: radial-gradient(transparent 60%, #000 61% 62%, transparent 63%);
+  mask: radial-gradient(transparent 60%, #000 61% 62%, transparent 63%);
+  animation: ritual-turn 28s linear infinite;
+}
+.boot-seal-wrap::after {
+  inset: 12%;
+  box-shadow: 0 0 40px #a41f2436;
+  background: radial-gradient(circle, #bb293120, transparent 70%);
+  animation: ritual-pulse 3.2s ease-in-out infinite;
+}
+.boot-seal {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 18px #000a) drop-shadow(0 0 12px #8f1b224a);
+  animation: ritual-emerge 1.5s ease both, ritual-breathe 4.5s ease-in-out 1.5s infinite;
+}
+.boot-heading {
+  margin: clamp(12px, 2.4vh, 20px) 0 4px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(23px, 4.3vw, 39px);
+  line-height: 1.1;
+  letter-spacing: .12em;
+  font-weight: 700;
+  color: #e8dbb9;
+  text-shadow: 0 2px 0 #342718, 0 0 20px #b47d403a;
+}
+.boot-quote {
+  min-height: 2.8em;
+  width: min(100%, 620px);
+  margin: 10px 0 2px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 2.4vw, 21px);
+  font-style: italic;
+  line-height: 1.45;
+  letter-spacing: .035em;
+  color: #b8d3b4;
+  text-shadow: 0 0 12px #254a2e70;
+  opacity: 1;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.boot-quote.is-changing { opacity: 0; transform: translateY(7px); }
+.boot-verse {
+  min-height: 1.6em;
+  margin: 4px 0 0;
+  color: #8c7858;
+  font-size: 10px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+}
+.boot-bottom {
+  display: grid;
+  gap: 15px;
+  align-content: end;
+}
+.boot-system-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: #8d9e85;
+}
+.boot-system-line strong {
+  font: inherit;
+  color: #d7b682;
+}
+.boot-progress {
+  height: 9px;
+  width: 100%;
+  border: 1px solid #817250;
+  padding: 2px;
+  background: #050906;
+  box-shadow: inset 0 0 12px #000;
+}
+.boot-progress-fill {
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #6d2528 0%, #bb403d 37%, #eab578 100%);
+  box-shadow: 0 0 10px #dc554d65, 0 0 17px #c9533560;
+  transition: width .12s linear;
+}
+.boot-progress-ticks {
+  position: relative;
+  margin-top: -16px;
+  height: 9px;
+  pointer-events: none;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(10% - 1px), #080d0a calc(10% - 1px) 10%);
+  opacity: .9;
+}
+.boot-status {
+  margin: 0;
+  min-height: 1.4em;
+  color: #8eac87;
+  font-size: clamp(9px, 1.5vw, 11px);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.boot-skip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
+  padding: 7px 13px;
+  border: 1px solid #6757428c;
+  border-radius: 0;
+  background: #10140e;
+  color: #ad9b76;
+  font-family: "Courier New", Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+}
+.boot-skip:hover {
+  border-color: #c6a66d;
+  color: #eadbb4;
+  background: #1d1912;
+}
+.boot-skip:focus-visible {
+  outline: 2px solid #b7eda7;
+  outline-offset: 4px;
+}
+.boot-screen.is-leaving {
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity .8s ease, filter .8s ease;
+}
+@keyframes ritual-turn {
+  to { transform: rotate(360deg); }
+}
+@keyframes ritual-pulse {
+  50% { opacity: .45; transform: scale(1.06); }
+}
+@keyframes ritual-emerge {
+  0% { opacity: 0; transform: scale(.86); filter: grayscale(1) brightness(.2) blur(5px); }
+  65% { opacity: 1; filter: grayscale(.25) brightness(1.22) blur(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes ritual-breathe {
+  50% { filter: drop-shadow(0 8px 18px #000a) drop-shadow(0 0 22px #c62e3a88); }
+}
+@media (max-height: 680px) {
+  .boot-console { min-height: initial; gap: 12px; }
+  .boot-seal-wrap { width: clamp(124px, 26vh, 190px); }
+  .boot-heading { margin-top: 5px; }
+  .boot-quote { min-height: initial; }
+  .boot-bottom { gap: 9px; }
+}
+@media (max-width: 540px) {
+  .boot-console { padding: 28px 20px 22px; }
+  .boot-astrolabe { font-size: 9px; letter-spacing: .13em; }
+  .boot-id { font-size: 8px; letter-spacing: .15em; }
+  .boot-heading { letter-spacing: .05em; }
+  .boot-verse { letter-spacing: .10em; }
+  .boot-system-line { font-size: 9px; }
+  .boot-status { letter-spacing: .07em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .boot-seal, .boot-seal-wrap::before, .boot-seal-wrap::after { animation: none !important; }
+  .boot-screen.is-leaving { transition: none !important; filter: none; }
+  .boot-quote { transition: none !important; }
+  .boot-progress-fill { transition: none !important; }
+}
