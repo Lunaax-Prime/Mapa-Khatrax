@@ -1,21 +1,45 @@
 # Mapa Khatrax
 
-Interface de cartografia estelar com estetica gotica industrial, inspirada em terminais sci-fi grimdark.
-
-## Fase 1 — Terminal auspex
-
-Tela-base visual: moldura metalica gotica com servitor, monitor verde, textura CRT e grade de varredura. O mapa planetario ainda nao foi adicionado.
+Uma interface interativa de cartografia do Sistema Khatrax, em visual auspex grimdark:
+moldura imperial gotica, tela CRT verde, abertura ritual do Adeptus Mechanicus e
+arquivos clicaveis de mundos e instalacoes.
 
 ## Executar
 
-Abra `index.html` num navegador ou sirva a pasta com um servidor HTTP estatico (por exemplo `python -m http.server 8000`). O site nao depende de frameworks nem de serviços externos.
+Abra `index.html` no navegador ou sirva o diretorio com um servidor estatico,
+por exemplo `python -m http.server 8000`. Nao precisa de compilacao nem framework.
 
-## Publicar no GitHub Pages
+## Trilha sonora: Noosphere
 
-Em **Settings > Pages**, selecione **Deploy from a branch**, ramo `main`, pasta `/ (root)`, e salve (se essa opcao estiver disponivel para o seu repositorio).
+O player esta integrado ao site e foi configurado para usar exatamente este caminho:
 
-## Proximas etapas
+`assets/noosphere.mp3`
 
-Adicionar planetas, estrelas, orbitas e interacoes sobre a area `#map-layer` sem precisar alterar a moldura.
+O arquivo de audio binario **precisa ser adicionado separadamente** a esse caminho.
+No GitHub, abra a pasta `assets`, escolha **Add file > Upload files**, envie
+o MP3 com o nome `noosphere.mp3` e confirme o commit na branch `main`.
 
-Projeto pessoal. Nenhum repositorio de outra conta e utilizado.
+Depois disso, o navegador tenta iniciar a faixa ao abrir o site. Como a maioria
+dos navegadores bloqueia audio automatico, o som tambem e iniciado no primeiro
+clique/toque do visitante, ou ao pressionar **ATIVAR CANTICO**. A musica fica em
+loop e oferece volume, pausa e retomada.
+
+**Direitos autorais:** a faixa oficial de Warhammer 40,000: Mechanicus pertence
+a seus respectivos titulares. Antes de incluir o MP3 em um site distribuido
+publicamente, confirme que possui autorizacao/licenca para essa distribuicao.
+
+## Publicacao
+
+Pode ser publicado como site estatico no Netlify ou no GitHub Pages (conforme
+as configuracoes de privacidade e elegibilidade do repositorio).
+Aponte a hospedagem para a pasta raiz da branch `main`.
+
+## Arquivos
+
+- `index.html`: terminal, moldura, abertura e interfaces
+- `styles/boot.css` e `scripts/boot.js`: tela ritual de inicializacao
+- `styles/map.css` e `scripts/map.js`: mapa verde interativo e fichas de mundos
+- `styles/music.css` e `scripts/music.js`: player da trilha Noosphere
+- `assets/`: SVGs e, quando licenciado e disponibilizado, o arquivo `noosphere.mp3`
+
+Projeto pessoal. Nenhum repositorio ou conta profissional e utilizado.
