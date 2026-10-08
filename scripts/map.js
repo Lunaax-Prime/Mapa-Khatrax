@@ -7,33 +7,33 @@
 
   var bodies = [
     { id: "star", name: "Estrela do Sistema Khatrax",
-      type: "ESTRELA CENTRAL / ÂNCORA GRAVITACIONAL",
-      faction: "Cartografia Imperial",
-      text: "Estrela principal do Sistema Khatrax, utilizada como referência na navegação e nas medições das órbitas planetárias." },
+      type: "ASTRUM PRIMARIS / ÂNCORA GRAVÍTICA",
+      faction: "Divisio Cartographica / Adeptus Mechanicus",
+      text: "No coração de Khatrax arde o astro primordial. Sua luz e sua gravidade alimentam os cálculos sagrados dos cogitadores, guiando as rotas cartográficas consagradas ao Omnissiah." },
     { id: "primus", name: "Khatrax Primus",
-      type: "HIVE WORLD / CAPITAL DO SISTEMA",
-      faction: "Guarda Imperial",
-      text: "Capital política e militar do sistema. Um imenso mundo-colmeia sob domínio da Guarda Imperial, com grandes centros populacionais e instalações administrativas." },
+      type: "MUNDUS FORMICARIUS / TRONO DO SISTEMA",
+      faction: "Astra Militarum / Guarda Imperial",
+      text: "Trono administrativo e militar de Khatrax. Sob incontáveis espiras de ferro, multidões de súditos do Imperador vivem à sombra das colmeias; nelas, a Guarda Imperial vigia a ordem e recolhe os dízimos da Coroa." },
     { id: "secundus", name: "Khatrax Secundus",
-      type: "GIGANTE GASOSO / REFINARIAS",
-      faction: "Infraestrutura industrial imperial",
-      text: "Gigante gasoso dotado de refinarias de combustível. Possui duas luas industriais: Heliphant I, de mineração, e Heliophant II, um mundo-forja." },
+      type: "GIGANTE GASOSO / ALTARES DE REFINO",
+      faction: "Ministorum Industria / Logística Imperial",
+      text: "Nos abismos gasosos de Secundus operam santuários de refino, onde o combustível é extraído em perpétua penitência mecânica. Duas luas sustentam seu tributo: Heliphant I, a mina, e Heliophant II, a forja." },
     { id: "heliphant-i", name: "Heliphant I",
-      type: "LUA ROCHOSA / MINERAÇÃO",
-      faction: "Complexos de mineração",
-      text: "Lua rochosa de Khatrax Secundus cuja principal atividade é a extração de minérios e matérias-primas." },
+      type: "SATELLITA FERRUM / MUNDO DE EXTRAÇÃO",
+      faction: "Corporação Mineira / Ofícios de Extração",
+      text: "Sob uma crosta de rocha e cinzas, a primeira lua de Secundus entrega seus minérios em dízimos sem fim. Cada veio rompido alimenta os fornos, docas e máquinas sacras do sistema." },
     { id: "heliophant-ii", name: "Heliophant II",
-      type: "LUA / MUNDO-FORJA",
-      faction: "Adeptus Mechanicus",
-      text: "Segunda lua de Khatrax Secundus, transformada em um mundo-forja sob a influência do Adeptus Mechanicus." },
+      type: "FORGIA SATELLITA / DOMÍNIO DE MARTE",
+      faction: "Adeptus Mechanicus / Sacerdócio de Marte",
+      text: "Heliophant II ressoa com hinos bináricos e martelos litúrgicos. Sob a custódia do Adeptus Mechanicus, seus complexos-forja preservam os ritos de produção e a veneração de cada espírito da máquina." },
     { id: "tetrius", name: "Khatrax Tetrius",
-      type: "MUNDO GÉLIDO / TEMPLOS DE PESQUISA",
+      type: "GLACIES MUNDUS / TEMPLOS-ARQUIVO",
       faction: "Adeptus Mechanicus / Crimson Prowlers",
-      text: "Mundo glacial que abriga algumas cidades e templos de pesquisa do Mechanicus. É também o lar da fortaleza-monastério dos Crimson Prowlers, capítulo dos Space Wolves." },
+      text: "Além de seus desertos congelados, Tetrius guarda cidades austeras e templos de pesquisa do Mechanicus. Na vastidão glacial ergue-se a fortaleza-monastério dos Crimson Prowlers, capítulo herdeiro dos Space Wolves." },
     { id: "galgans", name: "Galgan's Reach",
-      type: "SUPERESTALEIRO / HUB ESTRATÉGICO",
-      faction: "Imperium Nihilus",
-      text: "Um superestaleiro Imperial, frequentado por numerosas barcaças toda semana. É um dos pontos de importância estratégica para as operações imperiais no Imperium Nihilus." }
+      type: "ARSENAL NAVAL / ANCORADOURO SAGRADO",
+      faction: "Frotas Imperiais / Imperium Nihilus",
+      text: "Bastião de aço e docas intermináveis, Galgan's Reach recebe barcaças imperiais todas as semanas. Seus estaleiros sustentam a guerra e o trânsito de frotas; perdê-los seria um golpe terrível para o Imperium Nihilus." }
   ];
   var entries = Object.create(null);
   bodies.forEach(function (body) { entries[body.id] = body; });
@@ -143,59 +143,59 @@
     '<circle class="map-star-fill" cx="460" cy="302" r="23"/></g>' +
     '<path class="map-star-spike" d="M460 256v19m0 53v19m-46-45h19m53 0h19M424 266l15 15m42 42 15 15m-72 0 15-15m42-42 15-15"/>' +
     '<path class="map-leader" d="M435 330L396 361h-43"/>' +
-    label(355,375,"KHATRAX STAR","STELLAR PRIMARY") + nodeEnd()
+    label(355,375,"KHATRAX SOLARIS","STELLAR SANCTUM") + nodeEnd()
   );
   nodes.push(
     nodeStart("primus","Khatrax Primus",primus.x,primus.y,35) +
     sphere(primus.x,primus.y,21,"hive") +
     '<path class="map-leader" d="M331 230l-34-35h-53"/>' +
-    label(181,186,"KHATRAX PRIMUS","HIVE WORLD / CAPITAL") + nodeEnd()
+    label(181,186,"KHATRAX PRIMUS","HIVE WORLD / THRONE OF KHATRAX") + nodeEnd()
   );
   nodes.push(
     nodeStart("secundus","Khatrax Secundus",secundus.x,secundus.y,45) +
     gas(secundus.x,secundus.y) +
     '<path class="map-leader" d="M667 430l-18 42h-66"/>' +
-    label(548,488,"KHATRAX SECUNDUS","GAS GIANT / REFINERIES") + nodeEnd()
+    label(548,488,"KHATRAX SECUNDUS","GAS GIANT / SACRED REFINERIES") + nodeEnd()
   );
   nodes.push(
     nodeStart("heliphant-i","Heliphant I",heliphant.x,heliphant.y,21) +
     moon(heliphant.x,heliphant.y,10,false) +
     '<path class="map-leader" d="M' + (heliphant.x-9) + ' ' + (heliphant.y-8) + 'l-17-21h-50"/>' +
-    label(506,333,"HELIPHANT I","MINING MOON",true) + nodeEnd()
+    label(506,333,"HELIPHANT I","MINING MOON / ORE TITHES",true) + nodeEnd()
   );
   nodes.push(
     nodeStart("heliophant-ii","Heliophant II",heliophant.x,heliophant.y,21) +
     moon(heliophant.x,heliophant.y,12,true) +
     '<path class="map-leader" d="M' + (heliophant.x+9) + ' ' + (heliophant.y-8) + 'l16-20h22"/>' +
-    label(779,305,"HELIOPHANT II","FORGE MOON / MECHANICUS",true) + nodeEnd()
+    label(779,305,"HELIOPHANT II","FORGE MOON / CULT MECHANICUS",true) + nodeEnd()
   );
   nodes.push(
     nodeStart("tetrius","Khatrax Tetrius",tetrius.x,tetrius.y,38) +
     sphere(tetrius.x,tetrius.y,25,"ice") +
     '<path class="map-leader" d="M671 83l25-25h84"/>' +
-    label(788,53,"KHATRAX TETRIUS","ICE WORLD / CRIMSON PROWLERS") + nodeEnd()
+    label(788,53,"KHATRAX TETRIUS","ICE WORLD / ASTARTES SANCTUM") + nodeEnd()
   );
   nodes.push(
     nodeStart("galgans","Galgan's Reach",reach.x,reach.y,63) +
     shipyard(reach.x,reach.y) +
     '<path class="map-leader" d="M849 482l35 31h57"/>' +
-    label(950,509,"GALGAN'S REACH","IMPERIAL SUPER-SHIPYARD") + nodeEnd()
+    label(950,509,"GALGAN'S REACH","GRAND NAVAL FORGE") + nodeEnd()
   );
 
   var title = [
     '<path class="map-bracket" d="M17 76V19H74M1127 19h56v57M17 522v56h57M1127 578h56v-56"/>',
-    '<text class="map-viewport-title" x="35" y="39">SYSTEMA KHATRAX</text>',
-    '<text class="map-viewport-subtitle" x="35" y="56">IMPERIAL NAVIGATION / AUSPEX CARTOGRAPHY / IMPERIUM NIHILUS</text>',
+    '<text class="map-viewport-title" x="35" y="39">KHATRAX SYSTEMA</text>',
+    '<text class="map-viewport-subtitle" x="35" y="56">DIVISIO CARTOGRAPHICA // NOOSPHERIC AUSPEX // IMPERIUM NIHILUS</text>',
     '<path class="map-axis" d="M35 67H320M855 67H1166M35 562H1166"/>',
     '<circle class="map-status-blink" cx="1165" cy="35" r="3.6" fill="#95ffa8"/>',
-    '<text class="map-status-value" x="1149" y="39" text-anchor="end">NOOSPHERE / ONLINE</text>',
-    '<text class="map-status" x="36" y="581">SURVEY INDEX KHX-001 / ORBITAL VECTORS ARE SCHEMATIC</text>',
-    '<text class="map-status-value" x="1165" y="581" text-anchor="end">7 OBJECTS TRACKED</text>',
-    '<text class="map-status" x="1134" y="548" text-anchor="end">SELECT TARGET / ACCESS ARCHIVES</text>'
+    '<text class="map-status-value" x="1149" y="39" text-anchor="end">NOOSPHERE / SANCTIFIED</text>',
+    '<text class="map-status" x="36" y="581">ARCHIVUM KHX-001 // SACRED ORBITAL VECTORS // NOT TO SCALE</text>',
+    '<text class="map-status-value" x="1165" y="581" text-anchor="end">VII DESIGNATIONS VERIFIED</text>',
+    '<text class="map-status" x="1134" y="548" text-anchor="end">SELECT DESIGNATION // INVOKE ARCHIVE</text>'
   ].join('');
 
   var svg = [
-    '<svg class="map-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="group" aria-label="Mapa interativo do Sistema Khatrax">',
+    '<svg class="map-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="group" aria-label="Cartographica sanctificada do Sistema Khatrax">',
     '<defs>',
     '<radialGradient id="khatrax-star-fill"><stop offset="0" stop-color="#d9ffda"/><stop offset=".38" stop-color="#97ff9e"/><stop offset="1" stop-color="#189536"/></radialGradient>',
     '<radialGradient id="khatrax-gas-fill"><stop offset="0" stop-color="#2a7f3d"/><stop offset=".55" stop-color="#134f24"/><stop offset="1" stop-color="#041c0b"/></radialGradient>',
@@ -213,8 +213,8 @@
   var detail = [
     '<aside class="map-dossier" id="map-dossier" hidden aria-label="Arquivo do corpo celeste">',
     '<div class="map-dossier-top">',
-    '<p class="map-dossier-eyebrow">MECHANICUS ARCHIVE / DECRYPTED</p>',
-    '<button type="button" class="map-dossier-close" id="map-dossier-close" aria-label="Fechar arquivo" title="Fechar">×</button>',
+    '<p class="map-dossier-eyebrow">ARCHIVUM MECHANICUS / ACCESS SANCTIFIED</p>',
+    '<button type="button" class="map-dossier-close" id="map-dossier-close" aria-label="Selar arquivo" title="Selar arquivo">×</button>',
     '</div>',
     '<h2 class="map-dossier-title" id="map-dossier-title"></h2>',
     '<p class="map-dossier-kind" id="map-dossier-kind"></p>',
@@ -225,7 +225,7 @@
 
   layer.innerHTML = svg + detail;
   layer.removeAttribute("aria-hidden");
-  layer.setAttribute("aria-label","Mapa interativo do Sistema Khatrax");
+  layer.setAttribute("aria-label","Cartographica sanctificada do Sistema Khatrax");
 
   var svgRoot = layer.querySelector(".map-svg");
   var dossier = document.getElementById("map-dossier");
@@ -263,7 +263,7 @@
     bodyNode.textContent = info.text;
     factionNode.replaceChildren();
     var field = document.createElement("strong");
-    field.textContent = "CONTROLE / AFILIAÇÃO: ";
+    field.textContent = "DOMÍNIO / CUSTÓDIA: ";
     factionNode.append(field, document.createTextNode(info.faction));
     svgRoot.querySelectorAll("[data-world]").forEach(function(node) {
       var isActive = node.getAttribute("data-world") === id;
