@@ -1,0 +1,108 @@
+/* Canal musical opcional: liturgia sonora do Auspex Khatrax. */
+.khatrax-music-panel {
+  position: fixed;
+  z-index: 60;
+  left: max(14px, env(safe-area-inset-left));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(93vw, 410px);
+  padding: 8px 11px;
+  border: 1px solid #467755b5;
+  border-radius: 3px;
+  color: #a8ecc0;
+  background: #020d07e8;
+  box-shadow: inset 0 0 16px #0f3a1b55, 0 0 10px #06190baf;
+  backdrop-filter: blur(8px);
+  font: 10px/1.2 "Courier New", Consolas, monospace;
+  transition: background 200ms ease, opacity 200ms ease;
+}
+.khatrax-music-panel:hover, .khatrax-music-panel:focus-within {
+  background: #031709f7;
+}
+.khatrax-music-toggle {
+  border: 1px solid #70c083;
+  background: #0c2814;
+  color: #c5ffd1;
+  width: 34px;
+  height: 32px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+.khatrax-music-toggle:hover { background: #1a4a27; }
+.khatrax-music-toggle:focus-visible,
+.khatrax-music-panel input:focus-visible,
+.boot-music-toggle:focus-visible {
+  outline: 2px solid #baffc5;
+  outline-offset: 3px;
+}
+.khatrax-music-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.khatrax-music-name {
+  display: block;
+  color: #c8ffcd;
+  letter-spacing: 1.1px;
+  font-size: 10px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.khatrax-music-status {
+  display: block;
+  color: #7faa8e;
+  font-size: 9px;
+  line-height: 1.2;
+  letter-spacing: .4px;
+  white-space: nowrap;
+}
+.khatrax-music-volume {
+  width: 65px;
+  height: 18px;
+  accent-color: #68e784;
+  cursor: pointer;
+  margin-left: 3px;
+}
+.boot-music-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 7px;
+  padding: 8px 13px;
+  min-height: 30px;
+  border: 1px solid #577652;
+  background: #08180d;
+  color: #c6e6b5;
+  font: 10px/1.2 "Courier New", Consolas, monospace;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+.boot-music-toggle:hover {
+  background: #102d1b;
+  border-color: #b7d99c;
+}
+.boot-music-toggle[disabled],
+.khatrax-music-toggle[disabled] {
+  opacity: .52;
+  cursor: not-allowed;
+}
+@media(max-width: 620px) {
+  .khatrax-music-panel { gap: 7px; padding: 5px 7px; }
+  .khatrax-music-volume { width: 45px; }
+  .khatrax-music-name { font-size: 9px; }
+  .khatrax-music-status { font-size: 8px; }
+}
+@media(max-width: 370px) {
+  .khatrax-music-volume { display: none; }
+}
+@media(prefers-reduced-motion: reduce) {
+  .khatrax-music-panel, .boot-music-toggle { transition: none !important; }
+}
