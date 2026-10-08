@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="-300 -300 600 600" role="img" aria-labelledby="seal-title seal-desc">
+<title id="seal-title">Emblema do Adeptus Mechanicus</title>
+<desc id="seal-desc">Engrenagem vermelha e marfim em torno de um cranio dividido: metade osso, metade maquina, com ocular rubra e detalhes de bronze.</desc>
+<defs>
+ <clipPath id="right"><rect x="0" y="-250" width="250" height="500"/></clipPath>
+ <clipPath id="left"><rect x="-250" y="-250" width="250" height="500"/></clipPath>
+ <linearGradient id="blood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e14642"/><stop offset=".27" stop-color="#a31621"/><stop offset=".62" stop-color="#4e0c13"/><stop offset="1" stop-color="#9c2629"/></linearGradient>
+ <linearGradient id="ivory" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff8dd"/><stop offset=".48" stop-color="#c4baa2"/><stop offset="1" stop-color="#655b50"/></linearGradient>
+ <linearGradient id="steel" x1="0" y1="0" x2="1" y2=".8"><stop stop-color="#a8a9a0"/><stop offset=".32" stop-color="#454c49"/><stop offset=".58" stop-color="#1b2525"/><stop offset="1" stop-color="#6d716c"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#edcc85"/><stop offset=".38" stop-color="#8a6130"/><stop offset=".8" stop-color="#392916"/><stop offset="1" stop-color="#e2bb7a"/></linearGradient>
+ <radialGradient id="lens"><stop stop-color="#fff4cf"/><stop offset=".17" stop-color="#fd7052"/><stop offset=".45" stop-color="#ce1828"/><stop offset="1" stop-color="#420609"/></radialGradient>
+ <filter id="red-light" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<!-- Halo recortado de dezesseis dentes: as duas metades marciais -->
+<circle r="223" fill="none" stroke="#60452f" stroke-width="1.6" stroke-dasharray="3 12" opacity=".75"/>
+<circle r="210" fill="none" stroke="#95805c" stroke-width="2" opacity=".42"/>
+<path d="M0 -167 L11.05 -168.64 L25.19 -191.35 L37.65 -189.29 L43.74 -163.24 L53.68 -158.14 L63.91 -154.29 L74.75 -151.57 L96.5 -167.14 L107.23 -160.47 L102.88 -134.08 L110.11 -125.56 L118.09 -118.09 L127.06 -111.43 L153.12 -117.49 L160.47 -107.23 L146.36 -84.5 L149.78 -73.86 L154.29 -63.91 L160.03 -54.32 L186.42 -49.95 L189.29 -37.65 L167.55 -22.06 L166.64 -10.92 L167 0 L168.64 11.05 L191.35 25.19 L189.29 37.65 L163.24 43.74 L158.14 53.68 L154.29 63.91 L151.57 74.75 L167.14 96.5 L160.47 107.23 L134.08 102.88 L125.56 110.11 L118.09 118.09 L111.43 127.06 L117.49 153.12 L107.23 160.47 L84.5 146.36 L73.86 149.78 L63.91 154.29 L54.32 160.03 L49.95 186.42 L37.65 189.29 L22.06 167.55 L10.92 166.64 L0 167 L-11.05 168.64 L-25.19 191.35 L-37.65 189.29 L-43.74 163.24 L-53.68 158.14 L-63.91 154.29 L-74.75 151.57 L-96.5 167.14 L-107.23 160.47 L-102.88 134.08 L-110.11 125.56 L-118.09 118.09 L-127.06 111.43 L-153.12 117.49 L-160.47 107.23 L-146.36 84.5 L-149.78 73.86 L-154.29 63.91 L-160.03 54.32 L-186.42 49.95 L-189.29 37.65 L-167.55 22.06 L-166.64 10.92 L-167 0 L-168.64 -11.05 L-191.35 -25.19 L-189.29 -37.65 L-163.24 -43.74 L-158.14 -53.68 L-154.29 -63.91 L-151.57 -74.75 L-167.14 -96.5 L-160.47 -107.23 L-134.08 -102.88 L-125.56 -110.11 L-118.09 -118.09 L-111.43 -127.06 L-117.49 -153.12 L-107.23 -160.47 L-84.5 -146.36 L-73.86 -149.78 L-63.91 -154.29 L-54.32 -160.03 L-49.95 -186.42 L-37.65 -189.29 L-22.06 -167.55 L-10.92 -166.64 Z" fill="url(#blood)" stroke="#241710" stroke-width="7" stroke-linejoin="round"/>
+<path d="M0 -167 L11.05 -168.64 L25.19 -191.35 L37.65 -189.29 L43.74 -163.24 L53.68 -158.14 L63.91 -154.29 L74.75 -151.57 L96.5 -167.14 L107.23 -160.47 L102.88 -134.08 L110.11 -125.56 L118.09 -118.09 L127.06 -111.43 L153.12 -117.49 L160.47 -107.23 L146.36 -84.5 L149.78 -73.86 L154.29 -63.91 L160.03 -54.32 L186.42 -49.95 L189.29 -37.65 L167.55 -22.06 L166.64 -10.92 L167 0 L168.64 11.05 L191.35 25.19 L189.29 37.65 L163.24 43.74 L158.14 53.68 L154.29 63.91 L151.57 74.75 L167.14 96.5 L160.47 107.23 L134.08 102.88 L125.56 110.11 L118.09 118.09 L111.43 127.06 L117.49 153.12 L107.23 160.47 L84.5 146.36 L73.86 149.78 L63.91 154.29 L54.32 160.03 L49.95 186.42 L37.65 189.29 L22.06 167.55 L10.92 166.64 L0 167 L-11.05 168.64 L-25.19 191.35 L-37.65 189.29 L-43.74 163.24 L-53.68 158.14 L-63.91 154.29 L-74.75 151.57 L-96.5 167.14 L-107.23 160.47 L-102.88 134.08 L-110.11 125.56 L-118.09 118.09 L-127.06 111.43 L-153.12 117.49 L-160.47 107.23 L-146.36 84.5 L-149.78 73.86 L-154.29 63.91 L-160.03 54.32 L-186.42 49.95 L-189.29 37.65 L-167.55 22.06 L-166.64 10.92 L-167 0 L-168.64 -11.05 L-191.35 -25.19 L-189.29 -37.65 L-163.24 -43.74 L-158.14 -53.68 L-154.29 -63.91 L-151.57 -74.75 L-167.14 -96.5 L-160.47 -107.23 L-134.08 -102.88 L-125.56 -110.11 L-118.09 -118.09 L-111.43 -127.06 L-117.49 -153.12 L-107.23 -160.47 L-84.5 -146.36 L-73.86 -149.78 L-63.91 -154.29 L-54.32 -160.03 L-49.95 -186.42 L-37.65 -189.29 L-22.06 -167.55 L-10.92 -166.64 Z" fill="url(#ivory)" clip-path="url(#right)" stroke="#382e23" stroke-width="3" stroke-linejoin="round"/>
+<circle r="166" fill="none" stroke="#d9be8f" stroke-width="6" opacity=".8"/>
+<circle r="140" fill="#0b0e0d" stroke="#625644" stroke-width="7"/>
+<circle r="129" fill="#151816" stroke="#ad8c5a" stroke-width="3"/>
+<circle r="145" fill="none" stroke="#070907" stroke-width="14"/>
+<g transform="translate(0 -153)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(76.5 -132.5)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(132.5 -76.5)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(153 0)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(132.5 76.5)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(76.5 132.5)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(0 153)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(-76.5 132.5)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(-132.5 76.5)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(-153 0)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(-132.5 -76.5)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g><g transform="translate(-76.5 -132.5)"><circle r="5.4" fill="#181713" stroke="#a28a61" stroke-width="1.4"/><path d="M-2.5 0h5" stroke="#d4c39a" stroke-width="1.4"/></g>
+<!-- Ossatura e cranio -->
+<path d="M0-119C-78-119-106-66-102-6c1 37 12 59 33 74l10 58q21 22 59 22t59-22l10-58c21-15 32-37 33-74C106-66 78-119 0-119Z" fill="url(#ivory)" stroke="#211e19" stroke-width="8"/>
+<path d="M0-119C-78-119-106-66-102-6c1 37 12 59 33 74l10 58q21 22 59 22t59-22l10-58c21-15 32-37 33-74C106-66 78-119 0-119Z" fill="url(#steel)" clip-path="url(#right)" stroke="#1b2220" stroke-width="7"/>
+<!-- Face organica -->
+<path d="M-91-12l22-13 54 9-18 31-37 8z" fill="#151916" stroke="#483b31" stroke-width="5"/>
+<path d="M-84 39l26 18 8 16 20-10" fill="none" stroke="#665844" stroke-width="5"/>
+<path d="M-31-57Q-60-81-81-51M-28 42Q-48 49-59 38" fill="none" stroke="#e6dec6" stroke-width="4" opacity=".7"/>
+<path d="M-18 30L0 55 15 30Z" fill="#25251f"/>
+<!-- Machine ocular, cranial metal plates, and cable runs -->
+<path d="M10-105 45-87 77-56 84-13 68 45 32 74 8 45V-89Z" fill="#202825" stroke="url(#gold)" stroke-width="5"/>
+<path d="M30-103 54-93 61-65 43-57 18-75Z" fill="url(#steel)" stroke="#b1a175" stroke-width="3"/>
+<circle cx="49" cy="-3" r="37" fill="#0a1010" stroke="url(#gold)" stroke-width="9"/>
+<circle cx="49" cy="-3" r="25" fill="#252d2a" stroke="#826e48" stroke-width="5"/>
+<circle cx="49" cy="-3" r="20" fill="#ff313e" opacity=".33" filter="url(#red-light)"/>
+<circle cx="49" cy="-3" r="17" fill="url(#lens)"/>
+<circle cx="45" cy="-7" r="4" fill="#fff1be"/>
+<path d="M12-66 33-70M17 40 74 51M20 54 68 65M22 75h38" stroke="#9f997f" stroke-width="4"/>
+<path d="M61-83 92-110M78 32l34 34" fill="none" stroke="#111717" stroke-width="14" stroke-linecap="round"/>
+<path d="M61-83 92-110M78 32l34 34" fill="none" stroke="#777867" stroke-width="3" stroke-dasharray="2 7"/>
+<g stroke="#26241d" stroke-width="4"><path d="M-45 93h90M-42 107h84M-39 120h78"/></g>
+<g stroke="#b8a98d" stroke-width="2"><path d="M-35 88v49M-18 88v53M0 86v57M18 88v53M35 88v49"/></g>
+<path d="M0-123V147" stroke="#d1a971" stroke-width="4" opacity=".85"/>
+<circle cx="0" cy="-119" r="5" fill="#f5d299" stroke="#503720" stroke-width="1.5"/>
+<path d="M-117 112q-10 8-18 15m252-15q10 8 18 15" fill="none" stroke="#b09464" stroke-width="3" opacity=".75"/>
+</svg>
