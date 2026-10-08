@@ -18,7 +18,7 @@
 
   const reducedMotion = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const duration = 11000; // Noosphere: fim da introducao em 11 segundos.
+  const duration = 11500; // Noosphere: fim da introducao em 11,5 segundos.
 
   // Trechos curtos reconheciveis e novas litanias originais para o Mapa Khatrax.
   // Referencias: Lexicanum (Adeptus Mechanicus Quotes e Portal:Quotes).
@@ -97,8 +97,9 @@
     if (finished) return;
     if (start === null) start = now;
     const audio = document.getElementById("khatrax-soundtrack");
-    const elapsed = audio && !audio.paused && Number.isFinite(audio.currentTime)
-      ? audio.currentTime * 1000 : now - start;
+    // Um unico relogio controla a barra e a abertura, sem saltos
+    // quando a reproducao de audio e bloqueada ou atrasada.
+    const elapsed = now - start;
     const ratio = Math.min(1, elapsed / duration);
     // Progresso visual nao indica carregamento de dados reais.
     drawProgress(100 * ratio);
@@ -132,6 +133,6 @@
   drawProgress(0);
   if (!reducedMotion) quoteTimeout = window.setTimeout(secondLitany, 4500);
   raf = requestAnimationFrame(animate);
-  // Limite temporal se o navegador nao permitir iniciar o audio.
+  // Mesmo prazo para a barra e para a abertura, inclusive em abas lentas.
   revealTimeout = window.setTimeout(complete, duration);
 }());
