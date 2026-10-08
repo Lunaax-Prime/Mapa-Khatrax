@@ -18,7 +18,7 @@
 
   const reducedMotion = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const duration = 10500; // Noosphere: fim da introducao em 10,5 segundos.
+  const duration = 11000; // Noosphere: fim da introducao em 11 segundos.
 
   // Trechos curtos reconheciveis e novas litanias originais para o Mapa Khatrax.
   // Referencias: Lexicanum (Adeptus Mechanicus Quotes e Portal:Quotes).
