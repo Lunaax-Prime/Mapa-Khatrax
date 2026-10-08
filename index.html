@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#050907">
-  <meta name="description" content="Mapa Khatrax — terminal de navegacao estelar com visual gotico industrial.">
-  <title>Mapa Khatrax | Auspex</title>
+  <meta name="description" content="Khatrax Systema — cartographica noosferica sob o olhar do Omnissiah.">
+  <title>Khatrax Systema | Divisio Cartographica</title>
   <style>
     :root { color-scheme: dark; font-family: "Courier New", Consolas, monospace; }
     *, *::before, *::after { box-sizing: border-box; }
@@ -132,8 +132,8 @@
     <div class="boot-console">
       <header class="boot-header">
         <div class="boot-tracery"><span aria-hidden="true">✥</span></div>
-        <div class="boot-astrolabe">Adeptus Mechanicus · Divisio Astronomica</div>
-        <div class="boot-id">Cogitator sanctus // Khatrax system // M41</div>
+        <div class="boot-astrolabe">Adeptus Mechanicus · Divisio Cartographica</div>
+        <div class="boot-id">Cogitator Sanctus // Khatrax // Imperium Nihilus</div>
       </header>
 
       <div class="boot-heart">
@@ -142,14 +142,14 @@
                alt="Emblema do Adeptus Mechanicus: engrenagem rubra e marfim, com crânio metade orgânico e metade mecânico."
                width="600" height="600" decoding="async" fetchpriority="high">
         </div>
-        <h2 class="boot-heading" id="boot-heading">Praise the Omnissiah</h2>
-        <p class="boot-quote" id="boot-quote">The Machine is Immortal.</p>
-        <p class="boot-verse" id="boot-verse">Rite of machine-spirit invocation // Khatrax</p>
+        <h2 class="boot-heading" id="boot-heading">Omnissiah Be Praised</h2>
+        <p class="boot-quote" id="boot-quote">The Machine Endures Eternal.</p>
+        <p class="boot-verse" id="boot-verse">Canticle of the Motive Force // Khatrax</p>
       </div>
 
       <div class="boot-bottom">
         <div class="boot-system-line">
-          <span>Initiating sacred protocols</span>
+          <span>Commencing Rite of Activation</span>
           <strong id="boot-percent">000%</strong>
         </div>
         <div class="boot-progress" id="boot-progress" role="progressbar"
@@ -158,26 +158,26 @@
           <div class="boot-progress-fill" id="boot-progress-fill"></div>
         </div>
         <div class="boot-progress-ticks" aria-hidden="true"></div>
-        <p class="boot-status" id="boot-status" aria-live="polite">01001001 // INVOKING THE MACHINE-GOD</p>
-        <button class="boot-skip" id="boot-skip" type="button" title="Ir direto para a tela do mapa (Esc)">
-          Pular inicialização <span aria-hidden="true">↗</span>
+        <p class="boot-status" id="boot-status" aria-live="polite">01001001 // CHANTING THE RITE OF IGNITION</p>
+        <button class="boot-skip" id="boot-skip" type="button" title="Dispensar o rito e abrir o Auspex (Esc)">
+          Bypass Rite <span aria-hidden="true">↗</span>
         </button>
       </div>
     </div>
   </section>
 
-  <main class="terminal" id="terminal" aria-label="Console de cartografia Khatrax">
-    <h1 class="visually-hidden">Mapa Khatrax — Terminal Auspex</h1>
+  <main class="terminal" id="terminal" aria-label="Cogitator sagrado da Divisio Cartographica Khatrax">
+    <h1 class="visually-hidden">Khatrax Systema — Cartographica Noospherica</h1>
     <div class="screen-fallback" aria-hidden="true"></div>
     <img class="frame-art" src="./assets/auspex-khatrax.svg" alt="Moldura imperial gotica de ferro, bronze, caveiras, cabos e um servitor mecanico no canto direito; ao centro, monitor verde vazio." draggable="false" decoding="async" fetchpriority="high">
     <div class="screen-overlay" aria-hidden="true"></div>
-    <div id="map-layer" aria-label="Mapa orbital do Sistema Khatrax"></div>
+    <div id="map-layer" aria-label="Cartographica orbital do Sistema Khatrax"></div>
   </main>
-  <button class="control" id="fullscreen-toggle" type="button" aria-label="Ativar tela cheia" title="Tela cheia (F)">
+  <button class="control" id="fullscreen-toggle" type="button" aria-label="Expandir o Auspex para tela cheia" title="Expandir Auspex (F)">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg>
-    <span id="control-label">Tela cheia</span>
+    <span id="control-label">Expandir Auspex</span>
   </button>
-  <p class="rotate-note">Para visualizar o terminal em tamanho maior, gire o dispositivo para o modo paisagem.</p>
+  <p class="rotate-note">Rotacione seu dispositivo para contemplar a Cartographica em sua extensão.</p>
   <script>
     (function () {
       "use strict";
@@ -197,9 +197,9 @@
       button.addEventListener("click", toggleFullscreen);
       document.addEventListener("fullscreenchange", function () {
         var isFull = Boolean(document.fullscreenElement);
-        button.setAttribute("aria-label", isFull ? "Sair da tela cheia" : "Ativar tela cheia");
-        button.title = isFull ? "Sair da tela cheia (F)" : "Tela cheia (F)";
-        label.textContent = isFull ? "Sair" : "Tela cheia";
+        button.setAttribute("aria-label", isFull ? "Recolher o Auspex" : "Expandir o Auspex para tela cheia");
+        button.title = isFull ? "Recolher Auspex (F)" : "Expandir Auspex (F)";
+        label.textContent = isFull ? "Recolher Auspex" : "Expandir Auspex";
       });
       document.addEventListener("keydown", function (event) {
         var active = document.activeElement;
