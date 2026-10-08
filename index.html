@@ -114,8 +114,56 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
     }
   </style>
+  <link rel="preload" href="./assets/mechanicus-sigil.svg" as="image">
+  <link rel="preload" href="./assets/auspex-khatrax.svg" as="image">
+  <link rel="stylesheet" href="./styles/boot.css">
+  <script src="./scripts/boot.js" defer></script>
+  <noscript><style>
+    .boot-screen { display: none !important; }
+    body.booting .terminal { opacity: 1 !important; visibility: visible !important; animation: power-on 950ms ease both !important; }
+    body.booting .control, body.booting .rotate-note { visibility: visible !important; opacity: .45 !important; pointer-events: auto !important; }
+  </style></noscript>
 </head>
-<body>
+<body class="booting">
+  <!-- Cinematica de acesso ao auspex; o mapa so fica visivel depois do rito. -->
+  <section class="boot-screen" id="boot-screen" aria-labelledby="boot-heading">
+    <div class="boot-console">
+      <header class="boot-header">
+        <div class="boot-tracery"><span aria-hidden="true">✥</span></div>
+        <div class="boot-astrolabe">Adeptus Mechanicus · Divisio Astronomica</div>
+        <div class="boot-id">Cogitator sanctus // Khatrax system // M41</div>
+      </header>
+
+      <div class="boot-heart">
+        <div class="boot-seal-wrap">
+          <img class="boot-seal" src="./assets/mechanicus-sigil.svg"
+               alt="Emblema do Adeptus Mechanicus: engrenagem rubra e marfim, com crânio metade orgânico e metade mecânico."
+               width="600" height="600" decoding="async" fetchpriority="high">
+        </div>
+        <h2 class="boot-heading" id="boot-heading">Praise the Omnissiah</h2>
+        <p class="boot-quote" id="boot-quote">The Machine is Immortal.</p>
+        <p class="boot-verse" id="boot-verse">Rite of machine-spirit invocation // Khatrax</p>
+      </div>
+
+      <div class="boot-bottom">
+        <div class="boot-system-line">
+          <span>Initiating sacred protocols</span>
+          <strong id="boot-percent">000%</strong>
+        </div>
+        <div class="boot-progress" id="boot-progress" role="progressbar"
+             aria-label="Inicialização do terminal Auspex"
+             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="boot-progress-fill" id="boot-progress-fill"></div>
+        </div>
+        <div class="boot-progress-ticks" aria-hidden="true"></div>
+        <p class="boot-status" id="boot-status" aria-live="polite">01001001 // INVOKING THE MACHINE-GOD</p>
+        <button class="boot-skip" id="boot-skip" type="button" title="Ir direto para a tela do mapa (Esc)">
+          Pular inicialização <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <main class="terminal" id="terminal" aria-label="Console de cartografia Khatrax">
     <h1 class="visually-hidden">Mapa Khatrax — Terminal Auspex</h1>
     <div class="screen-fallback" aria-hidden="true"></div>
