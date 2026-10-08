@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050907">
+  <meta name="description" content="Mapa Khatrax — terminal de navegacao estelar com visual gotico industrial.">
+  <title>Mapa Khatrax | Auspex</title>
+  <style>
+    :root { color-scheme: dark; font-family: "Courier New", Consolas, monospace; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { min-height: 100%; background: #020403; }
+    body {
+      min-height: 100dvh; margin: 0; color: #9febb7;
+      display: grid; place-items: center; overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 48%, #12351c 0%, #07130b 46%, #010302 80%),
+        #010302;
+    }
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px; padding: 0;
+      margin: -1px; overflow: hidden; clip: rect(0 0 0 0);
+      white-space: nowrap; border: 0;
+    }
+    .terminal {
+      width: min(100vw, calc(100dvh * 1.776833));
+      aspect-ratio: 1672 / 941;
+      position: relative; isolation: isolate; flex: none;
+      overflow: hidden;
+      background-color: #031609;
+      background-image:
+        radial-gradient(ellipse at 50% 50%, #0b3b17 0%, #001609 61%, #050a05 86%);
+      box-shadow: 0 0 50px #03120c, 0 0 130px #000e05;
+      animation: power-on 950ms cubic-bezier(.18,.72,.2,1) both;
+    }
+    .frame-art {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      display: block; object-fit: fill; z-index: 3;
+      user-select: none; -webkit-user-drag: none;
+      pointer-events: none;
+    }
+    .screen-fallback {
+      position: absolute; inset: 15% 11% 14%;
+      border-radius: 3%;
+      z-index: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent 0 4px, #153a1d33 5px 6px),
+        linear-gradient(0deg, transparent 49.75%, #3dff6740 50%, transparent 50.25%),
+        linear-gradient(90deg, transparent 49.75%, #3dff6740 50%, transparent 50.25%),
+        radial-gradient(ellipse at 50% 50%, #0b3919, #001507);
+      box-shadow: inset 0 0 100px #4cfd6520, 0 0 55px #15fa5230;
+    }
+    .screen-overlay {
+      position: absolute; inset: 16% 13% 16%;
+      z-index: 4; pointer-events: none;
+      clip-path: polygon(8% 0,92% 0,100% 12%,100% 88%,92% 100%,8% 100%,0 88%,0 12%);
+      background:
+        repeating-linear-gradient(to bottom, transparent 0 3px, #010c030f 4px 5px),
+        linear-gradient(180deg, #55ff8a05, transparent 28%, #55ff8a02 70%, #55ff8a05);
+      mix-blend-mode: screen;
+      animation: phosphor-flicker 7s steps(1, end) infinite;
+    }
+    .screen-overlay::after {
+      content: ""; position: absolute; left: 0; right: 0;
+      height: 23%; top: -25%;
+      background: linear-gradient(to bottom, transparent, #42f7790b 55%, #42f77917 80%, transparent);
+      animation: scan 15s linear infinite;
+    }
+    /* Camada reservada exclusivamente para planetas, orbitas e marcadores futuros. */
+    #map-layer {
+      position: absolute; z-index: 5;
+      inset: 20% 18% 22% 18%;
+      pointer-events: none;
+    }
+    .control {
+      position: fixed; z-index: 10;
+      right: max(14px, env(safe-area-inset-right));
+      bottom: max(14px, env(safe-area-inset-bottom));
+      display: flex; align-items: center; gap: 9px;
+      border: 1px solid #57876477; border-radius: 4px;
+      background: #020d06ce; color: #a0e8b0;
+      padding: 9px 12px; font: 11px/1.1 "Courier New", monospace;
+      text-transform: uppercase; letter-spacing: .13em;
+      cursor: pointer; opacity: .20;
+      transition: opacity 180ms ease, background 180ms ease;
+      backdrop-filter: blur(8px);
+    }
+    .control:hover, .control:focus-visible { opacity: 1; background: #061b0deb; }
+    .control:focus-visible { outline: 2px solid #6cfba2; outline-offset: 3px; }
+    .control svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .rotate-note {
+      display: none; position: fixed; bottom: 15%; left: 0; right: 0;
+      padding: 0 20px; color: #81b88c; font-size: 11px;
+      line-height: 1.5; letter-spacing: .12em; text-align: center;
+      pointer-events: none;
+    }
+    @keyframes power-on {
+      0% { opacity: 0; filter: brightness(.1) saturate(.3); transform: scaleY(.012); }
+      45% { opacity: 1; transform: scaleY(.015); }
+      70% { transform: scaleY(1.01); filter: brightness(1.32); }
+      100% { transform: scaleY(1); filter: brightness(1); }
+    }
+    @keyframes scan { 0% { transform: translateY(0); } 100% { transform: translateY(650%); } }
+    @keyframes phosphor-flicker {
+      0%, 12%, 15%, 48%, 51%, 88%, 90%, 100% { opacity: .58; }
+      13%, 49%, 89% { opacity: .40; }
+      14%, 50% { opacity: .69; }
+    }
+    @media (max-aspect-ratio: 3/4) {
+      .rotate-note { display: block; }
+      .control { opacity: .72; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="terminal" id="terminal" aria-label="Console de cartografia Khatrax">
+    <h1 class="visually-hidden">Mapa Khatrax — Terminal Auspex</h1>
+    <div class="screen-fallback" aria-hidden="true"></div>
+    <img class="frame-art" src="./assets/auspex-khatrax.avif" alt="Moldura imperial gotica de ferro, bronze, caveiras, cabos e um servitor mecanico no canto direito; ao centro, monitor verde vazio." draggable="false" decoding="async" fetchpriority="high">
+    <div class="screen-overlay" aria-hidden="true"></div>
+    <div id="map-layer" aria-hidden="true"></div>
+  </main>
+  <button class="control" id="fullscreen-toggle" type="button" aria-label="Ativar tela cheia" title="Tela cheia (F)">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg>
+    <span id="control-label">Tela cheia</span>
+  </button>
+  <p class="rotate-note">Para visualizar o terminal em tamanho maior, gire o dispositivo para o modo paisagem.</p>
+  <script>
+    (function () {
+      "use strict";
+      var button = document.getElementById("fullscreen-toggle");
+      var label = document.getElementById("control-label");
+      async function toggleFullscreen() {
+        try {
+          if (document.fullscreenElement) {
+            await document.exitFullscreen();
+          } else if (document.documentElement.requestFullscreen) {
+            await document.documentElement.requestFullscreen();
+          }
+        } catch (error) {
+          console.warn("Tela cheia indisponivel:", error);
+        }
+      }
+      button.addEventListener("click", toggleFullscreen);
+      document.addEventListener("fullscreenchange", function () {
+        var isFull = Boolean(document.fullscreenElement);
+        button.setAttribute("aria-label", isFull ? "Sair da tela cheia" : "Ativar tela cheia");
+        button.title = isFull ? "Sair da tela cheia (F)" : "Tela cheia (F)";
+        label.textContent = isFull ? "Sair" : "Tela cheia";
+      });
+      document.addEventListener("keydown", function (event) {
+        var active = document.activeElement;
+        var isEditable = active && (active.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(active.tagName));
+        if (!isEditable && !event.altKey && !event.ctrlKey && !event.metaKey && event.key.toLowerCase() === "f") {
+          event.preventDefault();
+          toggleFullscreen();
+        }
+      });
+    }());
+  </script>
+</body>
+</html>
