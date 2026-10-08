@@ -145,21 +145,21 @@
 #map-layer .map-dossier[hidden] { display: none !important; }
 #map-layer .map-dossier {
   position: absolute;
+  z-index: 20;
   top: 18%;
   right: .6%;
   width: min(33%, 360px);
   max-height: 77%;
   display: flex;
   flex-direction: column;
-  padding: 17px 16px 16px;
+  padding: 0;
   border: 1px solid #65b87a;
   background:
     linear-gradient(145deg, #1642245e, transparent 40%),
     rgba(0, 17, 6, .96);
   box-shadow: 0 0 0 3px #020a05, 0 0 30px #2eff5829, inset 0 0 30px #05260f;
   backdrop-filter: blur(5px);
-  overflow: auto;
-  scrollbar-color: #3e8e52 #08180a;
+  overflow: hidden; /* The archive header must never scroll out of view. */
   animation: map-dossier-in .24s ease both;
 }
 #map-layer .map-dossier::before {
@@ -168,18 +168,63 @@
   border-top: 2px solid #acffb1; border-left: 2px solid #acffb1;
 }
 #map-layer .map-dossier-top {
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-height: 43px;
+  padding: 9px 10px;
+  border-bottom: 1px solid #3e8951;
+  background: #061b0ceb;
 }
 #map-layer .map-dossier-eyebrow {
-  margin: 0 0 9px; color: #61b97b; font-size: 10px; letter-spacing: 1.5px;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  color: #76d98a;
+  font-size: 9px;
+  line-height: 1.35;
+  letter-spacing: .6px;
+  overflow-wrap: anywhere;
 }
 #map-layer .map-dossier-close {
-  cursor: pointer; border: 1px solid #4d985c; background: #061909;
-  color: #b2ffbd; width: 27px; height: 27px; flex: none;
-  font-size: 18px; line-height: 20px;
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  flex: none;
+  min-width: 77px;
+  min-height: 31px;
+  padding: 5px 7px;
+  border: 1px solid #78ef91;
+  background: #103a1d;
+  color: #e0ffe5;
+  font: bold 10px/1 "Courier New", Consolas, monospace;
+  letter-spacing: .5px;
+  text-shadow: 0 0 4px #2cf15a5c;
+}
+#map-layer .map-dossier-close span:first-child {
+  font-size: 19px;
+  line-height: .7;
 }
 #map-layer .map-dossier-close:hover,
 #map-layer .map-dossier-close:focus-visible { background: #12401e; outline: 1px solid #affeb8; }
+#map-layer .map-dossier-content {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 12px 13px 14px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #3e8e52 #08180a;
+}
 #map-layer .map-dossier-title {
   font-size: clamp(13px, 1.5vw, 18px);
   line-height: 1.2; letter-spacing: 1px; color: #e5ffe8;
@@ -216,8 +261,12 @@
 @media (max-width: 780px) {
   #map-layer { inset: 17% 11% 17% 11% !important; }
   #map-layer .map-dossier {
-    width: 45%; top: 13%; max-height: 83%; padding: 10px;
+    width: 45%; top: 13%; max-height: 83%; padding: 0;
   }
+  #map-layer .map-dossier-top { min-height: 38px; padding: 5px 6px; }
+  #map-layer .map-dossier-eyebrow { font-size: 7px; letter-spacing: 0; line-height: 1.2; }
+  #map-layer .map-dossier-close { min-width: 62px; min-height: 29px; padding: 4px 5px; font-size: 9px; }
+  #map-layer .map-dossier-content { padding: 9px 9px 11px; }
   #map-layer .map-dossier-title { font-size: 12px; }
   #map-layer .map-dossier-body { font-size: 9px; }
   #map-layer .map-dossier-kind { font-size: 9px; }
