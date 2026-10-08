@@ -24,33 +24,33 @@
   // Referencias: Lexicanum (Adeptus Mechanicus Quotes e Portal:Quotes).
   const litanies = [
     {
-      line: "The flesh is weak.",
-      source: "TRADITIONAL ADEPTUS MECHANICUS LITANY"
+      line: "The flesh is weak. The Machine endures.",
+      source: "MECHANICUS CREED // LITANY OF STEEL"
     },
     {
-      line: "The eyes of the Omnissiah are ever upon us.",
-      source: "MECHANICUS ARCHIVES"
+      line: "The Omnissiah beholds all circuits, seen and unseen.",
+      source: "KHATRAX // CANTICLE OF THE WATCHFUL MACHINE"
     },
     {
-      line: "The Omnissiah directs our footsteps along the path of knowledge.",
-      source: "SOYLENS VIRIDIANS // FOR THE MACHINE-SPIRIT"
+      line: "By sacred calculus, the Omnissiah reveals the path.",
+      source: "KHATRAX // RITE OF NOOSPHERIC GUIDANCE"
     },
     {
-      line: "Awaken, machine-spirit. Guide our sacred sight.",
-      source: "KHATRAX // INVOCATION OF THE AUSPEX"
+      line: "Awaken, O Machine-Spirit, and reveal thy holy purpose.",
+      source: "KHATRAX // THE INVOCATION OF AUSPEX"
     },
     {
-      line: "Steel endures. The blessed circuits remember.",
-      source: "KHATRAX // ORIGINAL DATA-PSALM"
+      line: "Blessed be the Motive Force, for the Machine knows no death.",
+      source: "KHATRAX // DATA-PSALM OF THE ENDLESS GEAR"
     }
   ];
 
   const phaseData = [
-    { at: 0, text: "01001001 // INVOKING THE MACHINE-GOD" },
-    { at: 21, text: "RECITING THE BINARY LITANIES" },
-    { at: 44, text: "AWAKENING THE MACHINE-SPIRIT" },
-    { at: 71, text: "CONSECRATING NAVIGATION MATRICES" },
-    { at: 91, text: "AUSPEX SANCTIFIED // COORDINATES ONLINE" }
+    { at: 0, text: "01001001 // CHANTING THE RITE OF IGNITION" },
+    { at: 21, text: "RECITING THE SACRED BINHARIC LITANIES" },
+    { at: 44, text: "ENTREATING THE MACHINE-SPIRIT" },
+    { at: 71, text: "SANCTIFYING NOOSPHERIC CARTOGRAPHICA" },
+    { at: 91, text: "AUSPEX CONSECRATED // STELLAR VECTORS RECEIVED" }
   ];
 
   let finished = false;
@@ -83,7 +83,7 @@
     clearTimeout(quoteTimeout);
     clearTimeout(revealTimeout);
     drawProgress(100);
-    status.textContent = "ACCESS GRANTED // PRAISE THE OMNISSIAH";
+    status.textContent = "ACCESS SANCTIONED // OMNISSIAH BE PRAISED";
     skip.disabled = true;
     document.body.classList.remove("booting");
     overlay.classList.add("is-leaving");
