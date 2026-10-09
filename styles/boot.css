@@ -398,3 +398,76 @@ body.booting .rotate-note {
 .rite-gate-panel h2 { color:#c2ffcd; text-shadow:0 0 20px #00ff5a55; }
 .rite-gate-panel p { color:#a3edb4; }
 .rite-gate-sigil { filter:drop-shadow(0 0 22px #00ff5b66); }
+
+/* Tela AUSPEX reconstruida a partir da arte de referencia. */
+.boot-screen.rite-started {
+  overflow:hidden; padding:0; background:#000902;
+}
+.boot-screen.rite-started::before {
+  z-index:2; inset:0; pointer-events:none; mask-image:none;-webkit-mask-image:none;
+  background:repeating-linear-gradient(to bottom,transparent 0 5px,#000c05a8 6px 8px);
+  opacity:.48;
+}
+.boot-screen.rite-started::after {
+  border:10px solid #001207;box-shadow:inset 0 0 0 1px #12642d,inset 0 0 90px #003c18;
+}
+.boot-auspex {
+  position:relative;width:100%;height:100dvh;min-height:0;max-width:none;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:clamp(24px,4vh,52px) clamp(18px,5vw,80px);
+  gap:clamp(8px,2vh,20px);overflow:hidden;border:0;outline:0;
+  background:
+    radial-gradient(circle at 50% 38%,#06431b55,transparent 38%),
+    radial-gradient(ellipse at 12% 95%,#06402050,transparent 33%),
+    radial-gradient(ellipse at 94% 56%,#052c1655,transparent 31%),
+    repeating-linear-gradient(90deg,transparent 0 116px,#0b5a2415 117px 118px),
+    repeating-linear-gradient(0deg,transparent 0 116px,#0b5a2415 117px 118px),
+    #000b05;
+  box-shadow:inset 0 0 100px #001006;
+}
+.boot-auspex::before,.boot-auspex::after {display:none}
+.auspex-corner {position:absolute;z-index:1;top:clamp(20px,4vw,54px);display:flex;flex-direction:column;gap:5px;color:#27a957;font:clamp(9px,1vw,13px)/1.4 "Courier New",monospace;letter-spacing:.2em;text-shadow:0 0 14px #0aff4d44;}
+.auspex-corner strong {color:#5fe48b;font-size:1.25em}
+.auspex-corner-left {left:clamp(20px,5vw,80px)}
+.auspex-corner-right {right:clamp(20px,5vw,80px);text-align:right}
+.auspex-reticle {position:absolute;left:50%;top:43%;width:min(66vh,60vw);aspect-ratio:1;border:1px solid #09b83b19;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 45px #00ff0610,0 0 0 110px #0aff0307;pointer-events:none}
+.boot-auspex .boot-heart {z-index:1;flex:0 1 auto;min-height:0;gap:0;justify-items:center}
+.boot-auspex .boot-seal-wrap {width:clamp(160px, min(41vh,36vw), 390px);max-width:none}
+.boot-auspex .boot-seal-wrap::before,.boot-auspex .boot-seal-wrap::after {display:none}
+.boot-auspex .boot-seal {animation:ritual-emerge 1s ease both,auspex-glow 3s ease-in-out infinite;filter:drop-shadow(0 0 25px #00ff5166)}
+.boot-auspex .boot-heading {margin:clamp(8px,1.5vh,17px) 0 5px;font:700 clamp(27px,4.1vw,54px)/1.15 "Courier New",monospace;letter-spacing:.38em;color:#4bff86;text-shadow:0 0 20px #05ff5b77}
+.boot-auspex .boot-quote {min-height:0;margin:3px 0 0;font:clamp(11px,1.3vw,17px)/1.5 "Courier New",monospace;letter-spacing:.24em;color:#36ef76;text-shadow:0 0 14px #00ff4d66}
+.boot-auspex .boot-verse {margin:6px 0 0;font:clamp(8px,.9vw,11px)/1.4 "Courier New",monospace;letter-spacing:.14em;color:#1b8e47}
+.boot-auspex .boot-bottom {z-index:1;width:min(100%,570px);gap:10px;align-content:start}
+.boot-auspex .boot-system-line {font:clamp(9px,1vw,12px)/1.3 "Courier New",monospace;color:#39d16e;letter-spacing:.08em}
+.boot-auspex .boot-system-line strong {font-size:17px;color:#65ff92}
+.boot-auspex .boot-progress {height:29px;padding:4px;border:1px solid #26fa68;background:#001d0b;box-shadow:0 0 16px #00ff4b33,inset 0 0 12px #00ff4b20}
+.boot-auspex .boot-progress-fill {height:100%;background:linear-gradient(90deg,#008e31,#00ed51,#67ff91);box-shadow:0 0 20px #00ff4eaa}
+.boot-auspex .boot-progress-ticks {display:none}
+.auspex-logs {display:grid;gap:6px;text-align:left;margin-top:8px;font:clamp(9px,1.05vw,13px)/1.3 "Courier New",monospace;letter-spacing:.1em;color:#238e4b}
+.auspex-logs span {display:flex;justify-content:space-between;gap:10px}
+.auspex-logs b {font-weight:400;color:#46e87a;white-space:nowrap}
+.boot-auspex .boot-status {min-height:1.2em;margin:4px 0 0;text-align:left;color:#37c66b;font-size:10px}
+.auspex-actions {display:flex;align-items:center;justify-content:center;gap:10px}
+.boot-auspex .boot-skip {margin:0}
+@keyframes auspex-glow {50% {filter:drop-shadow(0 0 35px #00ff52aa) brightness(1.15)}}
+@media(max-width:650px) {
+  .boot-auspex {padding:95px 17px 28px;justify-content:center;gap:14px}
+  .auspex-corner {top:22px;font-size:8px;letter-spacing:.07em}
+  .auspex-corner-left {left:17px}.auspex-corner-right {right:17px}
+  .boot-auspex .boot-seal-wrap {width:min(61vw,30dvh);min-width:120px}
+  .boot-auspex .boot-heading {font-size:clamp(23px,7vw,34px);letter-spacing:.24em}
+  .boot-auspex .boot-quote {font-size:10px;letter-spacing:.07em}
+  .boot-auspex .boot-verse {font-size:8px;letter-spacing:.04em}
+  .boot-auspex .boot-bottom {gap:8px}
+  .boot-auspex .boot-progress {height:22px}
+  .boot-auspex .boot-system-line {font-size:9px}
+  .auspex-logs {font-size:9px;letter-spacing:0;gap:5px}
+  .boot-auspex .boot-status {font-size:9px}
+}
+@media(max-height:610px) {
+  .boot-auspex .boot-seal-wrap {width:min(24vh,170px)}
+  .boot-auspex {gap:5px;padding-top:58px;padding-bottom:12px}
+  .boot-auspex .boot-heading {font-size:25px;margin:3px 0}
+  .auspex-logs {gap:2px;margin-top:2px}
+}
