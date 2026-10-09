@@ -362,3 +362,39 @@ body.booting .rotate-note {
   background: #20572e; outline: 2px solid #c3f1b8; outline-offset: 3px;
 }
 .rite-gate-footer { font-size: 9px; color: #8c866e; }
+
+/* Liturgia noosferica em fosforo verde, inspirada no selo de referencia. */
+.boot-screen {
+  --bronze:#287b42; --bronze-bright:#79ff9b; --phosphor:#18ff5d;
+  color:#b4ffc5;
+  background:radial-gradient(ellipse 58% 55% at 50% 42%,#063f1c 0%,#02180b 49%,#000702 100%);
+}
+.boot-screen::before {
+  background:repeating-linear-gradient(to bottom,transparent 0 5px,#09f64d12 6px 7px),
+  repeating-linear-gradient(90deg,transparent 0 138px,#0b9b3224 139px 140px),
+  repeating-linear-gradient(0deg,transparent 0 138px,#0b9b3224 139px 140px);
+}
+.boot-screen::after { box-shadow:inset 0 0 0 2px #1c8e42,inset 0 0 90px 12px #001607,0 0 0 1px #38d968; }
+.boot-console {
+  background:linear-gradient(90deg,#001508 0%,transparent 17%,transparent 83%,#001508 100%),radial-gradient(circle at 50% 41%,#064521bb,#010e08ee 68%);
+  border-color:#238747; outline-color:#083d20;
+  box-shadow:inset 0 0 0 5px #010b05,inset 0 0 0 6px #175c2d,inset 0 0 55px #001509,0 0 80px #00190a;
+}
+.boot-tracery,.boot-astrolabe,.boot-id,.boot-verse,.boot-system-line strong { color:#65ef89; }
+.boot-tracery::before,.boot-tracery::after { background:linear-gradient(90deg,transparent,#34e36b); }
+.boot-heading { color:#b6ffbf; text-shadow:0 0 22px #18fa5577; }
+.boot-quote { color:#9bffad; text-shadow:0 0 14px #1be85a66; }
+.boot-system-line,.boot-status { color:#8cfaa3; }
+.boot-seal-wrap::before { border-color:#24ec6660; box-shadow:0 0 28px #0eff4d40; background:repeating-conic-gradient(from 0deg,transparent 0deg 14deg,#20d65b 14.5deg 15deg); }
+.boot-seal-wrap::after { box-shadow:0 0 45px #0aff5a55; background:radial-gradient(circle,#0bff4c1f,transparent 70%); }
+.boot-seal { filter:drop-shadow(0 0 12px #00ff5555) drop-shadow(0 0 25px #00ff5533); }
+.boot-progress { border-color:#2fdb62; background:#001207; }
+.boot-progress-fill { background:linear-gradient(90deg,#006b28,#08e64d,#9bffb1); box-shadow:0 0 11px #0dff62,0 0 19px #00f04e77; }
+.boot-skip,.boot-music-toggle { color:#a5ffc1; border-color:#267b44; background:#001d0b; }
+.boot-skip:hover,.boot-music-toggle:hover { color:#dcffe4; border-color:#7aff99; background:#06421e; }
+.rite-gate { background:radial-gradient(ellipse at center,#073d1a 0%,#001708 60%,#000702 100%); }
+.rite-gate-panel { border-color:#268a48; background:linear-gradient(150deg,#062c14,#010c06); box-shadow:inset 0 0 0 5px #001307,inset 0 0 0 6px #145c2e,0 0 75px #000; }
+.rite-gate-kicker,.rite-gate-footer { color:#80ef9b; }
+.rite-gate-panel h2 { color:#c2ffcd; text-shadow:0 0 20px #00ff5a55; }
+.rite-gate-panel p { color:#a3edb4; }
+.rite-gate-sigil { filter:drop-shadow(0 0 22px #00ff5b66); }
