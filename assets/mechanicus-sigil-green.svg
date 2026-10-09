@@ -1,12 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-labelledby="title desc">
-<title id="title">Selo verde do Adeptus Mechanicus</title><desc id="desc">Engrenagem circular e caveira central dividida, em fosforo verde, com linhas de monitor.</desc>
-<defs><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter><mask id="scan"><rect width="500" height="500" fill="white"/><path d="M0 0H500" stroke="#000" stroke-width="3" stroke-dasharray="1 8" opacity=".5"/></mask><pattern id="lines" width="500" height="12" patternUnits="userSpaceOnUse"><path d="M0 9H500" stroke="#001a09" stroke-width="3" opacity=".9"/></pattern></defs>
-<g fill="#0bff50" transform="translate(250 250)">
-<path id="gear" fill-rule="evenodd" d="M0-205 A205 205 0 1 1 -.01-205 Z M0-127 A127 127 0 1 0 .01-127 Z"/>
-<g id="teeth"><path d="M-22-224H22L29-187H-29Z"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(30)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(60)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(90)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(120)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(150)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(180)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(210)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(240)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(270)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(300)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(330)"/></g>
-<path d="M-91-83Q-77-129 0-133Q78-129 91-83Q115-18 83 40L62 71L55 120Q0 145-55 120L-62 71L-83 40Q-115-18-91-83Z"/>
+<title id="title">Adeptus Mechanicus - caveira e engrenagem em fosforo verde</title>
+<desc id="desc">Selo verde CRT com engrenagem de dentes irregulares, caveira central, olhos obliquos e faixas horizontais.</desc>
+<defs>
+<filter id="bloom" x="-35%" y="-35%" width="170%" height="170%"><feGaussianBlur stdDeviation="11"/></filter>
+<pattern id="scan" width="500" height="15" patternUnits="userSpaceOnUse"><path d="M0 11H500" stroke="#000d04" stroke-width="4.4" opacity=".93"/></pattern>
+<clipPath id="silhouette"><path d="M250 29C360 29 450 119 450 229C450 339 360 449 250 471C140 449 50 339 50 229C50 119 140 29 250 29Z"/></clipPath>
+<path id="cog" fill-rule="evenodd" d="M250 39 C365 39 460 134 460 250 C460 366 365 461 250 461 C135 461 40 366 40 250 C40 134 135 39 250 39Z M250 124 C180 124 124 180 124 250 C124 320 180 376 250 376 C320 376 376 320 376 250 C376 180 320 124 250 124Z"/>
+<g id="art">
+<g fill="#0aff4a">
+<use href="#cog"/>
+<path d="M227 31H274L282 84H219Z M372 67L408 97L382 139L348 104Z M444 183L459 227L408 243L398 199Z M430 324L409 370L363 344L386 304Z M326 430L282 455L259 407L306 392Z M173 430L215 456L239 407L195 390Z M68 324L91 369L137 345L114 303Z M56 182L40 228L92 244L103 200Z M128 67L93 98L118 139L152 103Z"/>
+<!-- fractured cog silhouette -->
+<path d="M85 130L113 154L98 190L57 187L79 155Z M396 115L423 146L405 181L365 170Z M429 278L461 298L447 337L409 332Z M68 290L39 312L56 346L94 334Z"/>
+<!-- Skull vault -->
+<path d="M154 236 C141 201 147 163 170 141 C191 119 220 111 249 111 C283 111 317 124 334 150 C350 175 351 205 340 236 L332 275 C326 295 312 306 302 317 L299 363 L284 373 L217 373 L201 360 L198 319 C180 305 165 287 160 267Z"/>
+<!-- jaw teeth -->
+<path d="M208 338H294V381L279 392H223L208 380Z"/>
 </g>
-<g fill="#001807"><path d="M157 225Q185 205 224 227Q218 258 189 263Q162 263 157 225Z"/><path d="M343 225Q315 205 276 227Q282 258 311 263Q338 263 343 225Z"/><path d="M250 266l-17 35h34z"/><path d="M195 329h110v20H195z"/></g>
-<g stroke="#001807" stroke-width="7"><path d="M215 325v35M234 326v35M252 326v35M271 326v35M290 325v35"/></g>
-<path d="M250 116v252" stroke="#00290d" stroke-width="7"/><path d="M0 0h500v500H0z" fill="url(#lines)" opacity=".9"/>
+<!-- deep cut eye sockets, organic on left and machine-like on right -->
+<g fill="#001707">
+<path d="M169 244Q190 224 233 232L227 266Q202 283 182 270Q171 263 169 244Z"/>
+<path d="M268 232Q311 222 332 242Q328 269 307 273Q282 278 274 262Z"/>
+<path d="M251 274L233 305Q241 313 250 309Q260 313 268 304Z"/>
+<path d="M205 333Q249 340 296 333L296 344Q248 351 205 344Z"/>
+<path d="M218 363H282V376H218Z"/>
+</g>
+<g fill="#0aff4a">
+<path d="M174 245Q198 234 229 238L220 247Q196 255 176 252Z"/>
+<path d="M272 237Q303 230 329 243L324 250Q297 253 279 248Z"/>
+</g>
+<g stroke="#001707" stroke-width="7" stroke-linecap="square">
+<path d="M218 344V385M233 347V390M249 347V392M265 346V390M282 343V385"/>
+</g>
+<path d="M250 114V379" stroke="#00491a" stroke-width="5" opacity=".55"/>
+</g>
+</defs>
+<use href="#art" opacity=".42" filter="url(#bloom)"/>
+<use href="#art"/>
+<rect width="500" height="500" fill="url(#scan)" opacity=".97"/>
 </svg>
