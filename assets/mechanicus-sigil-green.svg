@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-labelledby="title desc">
+<title id="title">Selo verde do Adeptus Mechanicus</title><desc id="desc">Engrenagem circular e caveira central dividida, em fosforo verde, com linhas de monitor.</desc>
+<defs><filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter><mask id="scan"><rect width="500" height="500" fill="white"/><path d="M0 0H500" stroke="#000" stroke-width="3" stroke-dasharray="1 8" opacity=".5"/></mask><pattern id="lines" width="500" height="12" patternUnits="userSpaceOnUse"><path d="M0 9H500" stroke="#001a09" stroke-width="3" opacity=".9"/></pattern></defs>
+<g fill="#0bff50" transform="translate(250 250)">
+<path id="gear" fill-rule="evenodd" d="M0-205 A205 205 0 1 1 -.01-205 Z M0-127 A127 127 0 1 0 .01-127 Z"/>
+<g id="teeth"><path d="M-22-224H22L29-187H-29Z"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(30)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(60)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(90)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(120)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(150)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(180)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(210)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(240)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(270)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(300)"/><path d="M-22-224H22L29-187H-29Z" transform="rotate(330)"/></g>
+<path d="M-91-83Q-77-129 0-133Q78-129 91-83Q115-18 83 40L62 71L55 120Q0 145-55 120L-62 71L-83 40Q-115-18-91-83Z"/>
+</g>
+<g fill="#001807"><path d="M157 225Q185 205 224 227Q218 258 189 263Q162 263 157 225Z"/><path d="M343 225Q315 205 276 227Q282 258 311 263Q338 263 343 225Z"/><path d="M250 266l-17 35h34z"/><path d="M195 329h110v20H195z"/></g>
+<g stroke="#001807" stroke-width="7"><path d="M215 325v35M234 326v35M252 326v35M271 326v35M290 325v35"/></g>
+<path d="M250 116v252" stroke="#00290d" stroke-width="7"/><path d="M0 0h500v500H0z" fill="url(#lines)" opacity=".9"/>
+</svg>
