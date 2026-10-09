@@ -124,5 +124,5 @@
   }, { capture: true });
 
   refresh();
-  awaken();
+  // A reproducao inicia somente apos o clique no rito de acesso.
 }());
