@@ -5,15 +5,21 @@
   if (!Context) return;
   var context = null;
   var lastHover = 0;
+  var master = null;
   var selector = 'button:not(:disabled), [data-world], a[href], input[type="range"]';
   function unlock() {
     if (!context) {
-      try { context = new Context(); } catch (_) { return; }
+      try {
+        context = new Context();
+        master = context.createGain();
+        master.gain.value = 0.85;
+        master.connect(context.destination);
+      } catch (_) { return; }
     }
     if (context.state === "suspended") context.resume().catch(function () {});
   }
   function beep(type) {
-    if (!context || context.state !== "running") return;
+    if (!context || !master) return;
     var now = context.currentTime;
     var oscillator = context.createOscillator();
     var gain = context.createGain();
@@ -21,10 +27,10 @@
     oscillator.frequency.setValueAtTime(type === "hover" ? 720 : 470, now);
     oscillator.frequency.exponentialRampToValueAtTime(type === "hover" ? 920 : 260, now + (type === "hover" ? .045 : .095));
     gain.gain.setValueAtTime(.0001, now);
-    gain.gain.exponentialRampToValueAtTime(type === "hover" ? .018 : .038, now + .008);
+    gain.gain.exponentialRampToValueAtTime(type === "hover" ? .085 : .16, now + .008);
     gain.gain.exponentialRampToValueAtTime(.0001, now + (type === "hover" ? .065 : .13));
     oscillator.connect(gain);
-    gain.connect(context.destination);
+    gain.connect(master);
     oscillator.start(now);
     oscillator.stop(now + (type === "hover" ? .07 : .14));
     oscillator.onended = function () { oscillator.disconnect(); gain.disconnect(); };
@@ -41,8 +47,7 @@
   document.addEventListener("pointerdown", function (event) {
     unlock();
     if (event.target.closest && event.target.closest(selector)) {
-      if (context && context.state === "running") beep("click");
-      else if (context) context.resume().then(function () { beep("click"); }).catch(function () {});
+      beep("click");
     }
   }, { capture: true });
   document.addEventListener("keydown", function (event) {
@@ -50,6 +55,6 @@
     var target = event.target.closest && event.target.closest(selector);
     if (!target) return;
     unlock();
-    if (context && context.state === "running") beep("click");
+    beep("click");
   }, { capture: true });
 }());
