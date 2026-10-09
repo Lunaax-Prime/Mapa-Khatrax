@@ -21,19 +21,30 @@
   function beep(type) {
     if (!context || !master) return;
     var now = context.currentTime;
+    var hover = type === "hover";
+    var duration = hover ? 0.048 : 0.105;
+    // Pulsos quadrados e frequencias em degraus: interface binaria industrial.
     var oscillator = context.createOscillator();
     var gain = context.createGain();
-    oscillator.type = type === "hover" ? "sine" : "triangle";
-    oscillator.frequency.setValueAtTime(type === "hover" ? 720 : 470, now);
-    oscillator.frequency.exponentialRampToValueAtTime(type === "hover" ? 920 : 260, now + (type === "hover" ? .045 : .095));
+    oscillator.type = "square";
+    oscillator.frequency.setValueAtTime(hover ? 1250 : 780, now);
+    oscillator.frequency.setValueAtTime(hover ? 1680 : 540, now + (hover ? .019 : .035));
+    if (!hover) oscillator.frequency.setValueAtTime(390, now + .072);
     gain.gain.setValueAtTime(.0001, now);
-    gain.gain.exponentialRampToValueAtTime(type === "hover" ? .085 : .16, now + .008);
-    gain.gain.exponentialRampToValueAtTime(.0001, now + (type === "hover" ? .065 : .13));
-    oscillator.connect(gain);
+    gain.gain.linearRampToValueAtTime(hover ? .105 : .175, now + .002);
+    gain.gain.setValueAtTime(hover ? .105 : .175, now + (hover ? .028 : .072));
+    gain.gain.linearRampToValueAtTime(.0001, now + duration);
+    var filter = context.createBiquadFilter();
+    filter.type = "lowpass";
+    filter.frequency.value = hover ? 2700 : 1950;
+    oscillator.connect(filter);
+    filter.connect(gain);
     gain.connect(master);
     oscillator.start(now);
-    oscillator.stop(now + (type === "hover" ? .07 : .14));
-    oscillator.onended = function () { oscillator.disconnect(); gain.disconnect(); };
+    oscillator.stop(now + duration + .005);
+    oscillator.onended = function () {
+      oscillator.disconnect(); filter.disconnect(); gain.disconnect();
+    };
   }
   document.addEventListener("pointerover", function (event) {
     if (event.pointerType === "touch") return;
