@@ -10,6 +10,8 @@
   const progress = document.getElementById("boot-progress");
   const fill = document.getElementById("boot-progress-fill");
   const percent = document.getElementById("boot-percent");
+  const gate = document.getElementById("rite-gate");
+  const beginButton = document.getElementById("rite-begin");
 
   if (!overlay || !skip || !quote || !source || !status || !fill || !percent) {
     document.body.classList.remove("booting");
@@ -59,6 +61,7 @@
   let lastPhase = -1;
   let quoteTimeout = 0;
   let revealTimeout = 0;
+  let begun = false;
 
   function drawProgress(value) {
     const val = Math.max(0, Math.min(100, Math.floor(value)));
@@ -96,7 +99,6 @@
   function animate(now) {
     if (finished) return;
     if (start === null) start = now;
-    const audio = document.getElementById("khatrax-soundtrack");
     // Um unico relogio controla a barra e a abertura, sem saltos
     // quando a reproducao de audio e bloqueada ou atrasada.
     const elapsed = now - start;
@@ -122,17 +124,37 @@
     }, 360);
   }
 
-  skip.addEventListener("click", complete);
+  skip.addEventListener("click", function () { if (begun) complete(); });
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && !finished) {
+    if (event.key === "Escape" && begun && !finished) {
       event.preventDefault();
       complete();
     }
   });
 
-  drawProgress(0);
-  if (!reducedMotion) quoteTimeout = window.setTimeout(secondLitany, 4500);
-  raf = requestAnimationFrame(animate);
-  // Mesmo prazo para a barra e para a abertura, inclusive em abas lentas.
-  revealTimeout = window.setTimeout(complete, duration);
+  function beginRite() {
+    if (begun || finished) return;
+    begun = true;
+    // O clique do visitante autoriza a tentativa de tocar Noosphere.
+    const audio = document.getElementById("khatrax-soundtrack");
+    if (audio) {
+      audio.pause();
+      try { audio.currentTime = 0; } catch (error) { /* MP3 ainda carregando */ }
+      const playback = audio.play();
+      if (playback && typeof playback.catch === "function") playback.catch(function () {});
+    }
+    if (gate) gate.hidden = true;
+    overlay.classList.add("rite-started");
+    drawProgress(0);
+    start = performance.now();
+    if (!reducedMotion) quoteTimeout = window.setTimeout(secondLitany, 4500);
+    raf = requestAnimationFrame(animate);
+    revealTimeout = window.setTimeout(complete, duration);
+  }
+
+  if (beginButton && gate) {
+    beginButton.addEventListener("click", beginRite);
+  } else {
+    beginRite(); // Compatibilidade com paginas antigas em cache.
+  }
 }());
