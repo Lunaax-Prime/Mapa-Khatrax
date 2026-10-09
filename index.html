@@ -114,9 +114,9 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
     }
   </style>
-  <link rel="preload" href="./assets/mechanicus-sigil.svg" as="image">
+  <link rel="preload" href="./assets/mechanicus-sigil-green.svg" as="image">
   <link rel="preload" href="./assets/auspex-khatrax.svg" as="image">
-  <link rel="stylesheet" href="./styles/boot.css">
+  <link rel="stylesheet" href="./styles/boot.css?v=auspex2">
   <script src="./scripts/boot.js" defer></script>
   <noscript><style>
     .boot-screen { display: none !important; }
@@ -142,43 +142,25 @@
         <span class="rite-gate-footer">AO CONFIRMAR, O CÂNTICO NOOSFÉRICO SERÁ ENTOADO</span>
       </div>
     </div>
-    <div class="boot-console">
-      <header class="boot-header">
-        <div class="boot-tracery"><span aria-hidden="true">✥</span></div>
-        <div class="boot-astrolabe">Adeptus Mechanicus · Divisio Cartographica</div>
-        <div class="boot-id">Cogitator Sanctus // Khatrax // Imperium Nihilus</div>
-      </header>
-
+    <div class="boot-console boot-auspex">
+      <div class="auspex-corner auspex-corner-left"><strong>A U S P E X</strong><span>DIVISIO CARTOGRAPHICA</span><span>ACESSO RESTRITO</span></div>
+      <div class="auspex-corner auspex-corner-right"><strong>KHATRAX</strong><span>SISTEMA ESTELAR</span><span>V.7.3.1</span></div>
+      <div class="auspex-reticle" aria-hidden="true"></div>
       <div class="boot-heart">
         <div class="boot-seal-wrap">
-          <img class="boot-seal" src="./assets/mechanicus-sigil-green.svg"
-               alt="Emblema do Adeptus Mechanicus: engrenagem rubra e marfim, com crânio metade orgânico e metade mecânico."
-               width="600" height="600" decoding="async" fetchpriority="high">
+          <img class="boot-seal" src="./assets/mechanicus-sigil-green.svg" alt="Caveira do Adeptus Mechanicus em uma engrenagem verde fosforescente" width="600" height="600">
         </div>
-        <h2 class="boot-heading" id="boot-heading">Omnissiah Be Praised</h2>
-        <p class="boot-quote" id="boot-quote">The Machine Endures Eternal.</p>
-        <p class="boot-verse" id="boot-verse">Canticle of the Motive Force // Khatrax</p>
+        <h2 class="boot-heading" id="boot-heading">A U S P E X</h2>
+        <p class="boot-quote" id="boot-quote">INICIALIZANDO SISTEMA KHATRAX</p>
+        <p class="boot-verse" id="boot-verse">CANTICLE OF THE MOTIVE FORCE // KHATRAX</p>
       </div>
-
       <div class="boot-bottom">
-        <div class="boot-system-line">
-          <span>Commencing Rite of Activation</span>
-          <strong id="boot-percent">000%</strong>
-        </div>
-        <div class="boot-progress" id="boot-progress" role="progressbar"
-             aria-label="Inicialização do terminal Auspex"
-             aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-          <div class="boot-progress-fill" id="boot-progress-fill"></div>
-        </div>
+        <div class="boot-system-line"><span>TRANSMISSÃO NOOSFÉRICA // CARREGANDO</span><strong id="boot-percent">000%</strong></div>
+        <div class="boot-progress" id="boot-progress" role="progressbar" aria-label="Inicialização do terminal Auspex" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="boot-progress-fill" id="boot-progress-fill"></div></div>
         <div class="boot-progress-ticks" aria-hidden="true"></div>
+        <div class="auspex-logs" aria-hidden="true"><span>&gt; VERIFICANDO PROTOCOLOS <b>[ OK ]</b></span><span>&gt; ESTABELECENDO CONEXÃO ORBITAL <b>[ OK ]</b></span><span>&gt; DECRIPTANDO REGISTROS <b>[ OK ]</b></span><span>&gt; CARREGANDO ARQUIVOS DE MAPA <b>[ ▮▮▮ ]</b></span></div>
         <p class="boot-status" id="boot-status" aria-live="polite">01001001 // CHANTING THE RITE OF IGNITION</p>
-        <button class="boot-skip" id="boot-skip" type="button" title="Dispensar o rito e abrir o Auspex (Esc)">
-          Bypass Rite <span aria-hidden="true">↗</span>
-        </button>
-        <button class="boot-music-toggle" id="boot-music-toggle" type="button"
-                aria-label="Ativar o cântico" aria-pressed="false" title="Ouvir Noosphere">
-          <span aria-hidden="true">♫</span><span id="boot-music-label">ATIVAR CÂNTICO</span>
-        </button>
+        <div class="auspex-actions"><button class="boot-skip" id="boot-skip" type="button">IGNORAR RITO ↗</button><button class="boot-music-toggle" id="boot-music-toggle" type="button" aria-label="Ativar o cântico" aria-pressed="false" title="Ouvir Noosphere"><span aria-hidden="true">♫</span><span id="boot-music-label">ATIVAR CÂNTICO</span></button></div>
       </div>
     </div>
   </section>
