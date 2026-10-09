@@ -131,6 +131,16 @@
 <body class="booting">
   <!-- Cinematica de acesso ao auspex; o mapa so fica visivel depois do rito. -->
   <section class="boot-screen" id="boot-screen" aria-labelledby="boot-heading">
+    <div class="rite-gate" id="rite-gate" role="group" aria-labelledby="rite-gate-heading">
+      <div class="rite-gate-panel">
+        <div class="rite-gate-kicker">ADEPTUS MECHANICUS // DIVISIO CARTOGRAPHICA</div>
+        <img class="rite-gate-sigil" src="./assets/mechanicus-sigil.svg" alt="Selo sagrado do Adeptus Mechanicus" width="220" height="220">
+        <h2 id="rite-gate-heading">REQUISIÇÃO DE ACESSO</h2>
+        <p>O Espírito da Máquina aguarda sua autorização para despertar a Cartographica do Sistema Khatrax.</p>
+        <button id="rite-begin" class="rite-gate-button" type="button">INICIAR RITOS DE INICIALIZAÇÃO</button>
+        <span class="rite-gate-footer">AO CONFIRMAR, O CÂNTICO NOOSFÉRICO SERÁ ENTOADO</span>
+      </div>
+    </div>
     <div class="boot-console">
       <header class="boot-header">
         <div class="boot-tracery"><span aria-hidden="true">✥</span></div>
@@ -180,7 +190,7 @@
     <div id="map-layer" aria-label="Cartographica orbital do Sistema Khatrax"></div>
   </main>
   <!-- A faixa Noosphere e fornecida pelo proprietario do projeto. -->
-  <audio id="khatrax-soundtrack" src="./assets/noosphere.mp3" preload="metadata" autoplay loop></audio>
+  <audio id="khatrax-soundtrack" src="./assets/noosphere.mp3" preload="auto" loop></audio>
   <div class="khatrax-music-panel" aria-label="Controle da trilha sonora Noosphere">
     <button id="music-toggle" class="khatrax-music-toggle" type="button"
             aria-label="Reproduzir Noosphere" aria-pressed="false" title="Reproduzir ou pausar Noosphere">
