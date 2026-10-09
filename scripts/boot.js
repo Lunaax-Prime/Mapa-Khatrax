@@ -20,7 +20,7 @@
 
   const reducedMotion = window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const duration = 10600; // Entrada no mapa aos 10,6 segundos.
+  const duration = 10500; // Entrada no mapa aos 10,5 segundos.
 
   // Trechos curtos reconheciveis e novas litanias originais para o Mapa Khatrax.
   // Referencias: Lexicanum (Adeptus Mechanicus Quotes e Portal:Quotes).
