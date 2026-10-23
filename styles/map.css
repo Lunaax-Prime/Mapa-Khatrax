@@ -289,3 +289,10 @@
 #map-layer .map-node:has(.map-hostile):hover .map-hostile-ship,
 #map-layer .map-node:has(.map-hostile).is-selected .map-hostile-ship { fill:#8c1018; }
 #map-layer .map-node:has(.map-hostile) .map-selection { stroke:#ff5157; }
+
+/* Heliphant I: lua mineira sob controle de uma revolta genestealer. */
+#map-layer .map-hostile-moon .map-moon-fill { fill:#30070a; stroke:#ff4b52; }
+#map-layer .map-hostile-moon .map-moon-line { stroke:#ff777b; }
+#map-layer .map-hostile-moon .map-label { fill:#ff656b; }
+#map-layer .map-hostile-moon .map-label-sub { fill:#f1777b; }
+#map-layer .map-node:has(.map-hostile-moon) .map-selection { stroke:#ff5157; }
