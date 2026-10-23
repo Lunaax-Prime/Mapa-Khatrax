@@ -212,12 +212,12 @@
 
   // Alerta de frota Tyranid na borda leste do mapa, com tres sinais de aproximacao.
   nodes.push(
-    nodeStart("tyranid-approach", "Aproximacao de Frota Xeno Tyranid", 1080, 214, 95) +
+    nodeStart("tyranid-approach", "Aproximacao de Frota Xeno Tyranid", 1060, 214, 110) +
     '<g class="map-hostile-approach">' +
-    '<path d="M1104 143l-38 12 38 12 -9-12Z M1104 204l-38 12 38 12 -9-12Z M1104 265l-38 12 38 12 -9-12Z" fill="#2b060a" stroke="#ff4149" stroke-width="2.5" stroke-linejoin="round"/>' +
-    '<path d="M1120 155h-10M1120 216h-10M1120 277h-10" fill="none" stroke="#ff6169" stroke-width="1.3" stroke-dasharray="3 3"/>' +
-    '<text x="1030" y="309" text-anchor="middle" fill="#ff686e" font-size="12" font-weight="bold" letter-spacing="1">ALERTA XENO</text>' +
-    '<text x="1030" y="323" text-anchor="middle" fill="#ef7378" font-size="9" letter-spacing=".8">FROTA TYRANID / ETA DESCONHECIDO</text>' +
+    '<path d="M1095 137L1040 155L1095 173L1081 155Z M1095 193L1040 211L1095 229L1081 211Z M1095 249L1040 267L1095 285L1081 267Z" fill="#2b060a" stroke="#ff4149" stroke-width="2.5" stroke-linejoin="round"/>' +
+    '<path d="M1106 155h-9M1106 211h-9M1106 267h-9" fill="none" stroke="#ff6169" stroke-width="1.3" stroke-dasharray="3 3"/>' +
+    '<text x="1062" y="310" text-anchor="middle" fill="#ff686e" font-size="12" font-weight="bold" letter-spacing="1">ALERTA XENO</text>' +
+    '<text x="1062" y="324" text-anchor="middle" fill="#ef7378" font-size="9" letter-spacing=".8">FROTA TYRANID / ETA DESCONHECIDO</text>' +
     '</g>' + nodeEnd()
   );
 
