@@ -163,9 +163,14 @@
   );
   nodes.push(
     nodeStart("heliphant-i","Heliphant I",heliphant.x,heliphant.y,21) +
-    '<g class="map-hostile-moon">' + moon(heliphant.x,heliphant.y,10,false) + '</g>' +
-    '<path class="map-leader" d="M' + (heliphant.x-9) + ' ' + (heliphant.y-8) + 'l-17-21h-50"/>' +
-    '<g class="map-hostile-moon">' + label(506,333,"HELIPHANT I","GENESTEALER CULT / MINING REVOLT",true) + '</g>' + nodeEnd()
+    '<g class="map-hostile-moon" style="color:#ff444c">' +
+    '<circle cx="' + heliphant.x + '" cy="' + heliphant.y + '" r="11" fill="#380509" stroke="#ff434a" stroke-width="2.5"/>' +
+    '<path d="M' + (heliphant.x-7) + ' ' + (heliphant.y-4) + 'l5-4 4 8 6 3m-16 2 6-2 5 6" fill="none" stroke="#ff8588" stroke-width="1.6"/>' +
+    '<circle cx="' + heliphant.x + '" cy="' + heliphant.y + '" r="16" fill="none" stroke="#ff4048" stroke-dasharray="3 4" stroke-width="1.2"/>' +
+    '</g>' +
+    '<path d="M' + (heliphant.x-9) + ' ' + (heliphant.y-8) + 'l-17-21h-50" fill="none" stroke="#f4434d" stroke-width="1.3" stroke-dasharray="3 3"/>' +
+    '<text x="506" y="333" fill="#ff5b64" font-size="11" font-weight="bold" letter-spacing=".9">HELIPHANT I</text>' +
+    '<text x="506" y="347" fill="#f17c80" font-size="9" letter-spacing="1">GENESTEALER CULT / MINING REVOLT</text>' + nodeEnd()
   );
   nodes.push(
     nodeStart("heliophant-ii","Heliophant II",heliophant.x,heliophant.y,21) +
