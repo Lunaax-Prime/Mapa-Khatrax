@@ -210,19 +210,19 @@
     nodeEnd()
   );
 
-  // Tres vetores vermelhos de aproximacao Tyranid, dentro da area visivel do Auspex.
+  // Aviso Tyranid na borda direita, separado das legendas dos planetas.
   nodes.push(
-    nodeStart("tyranid-approach", "Alerta: frota Tyranid em aproximacao", 950, 215, 105) +
-    '<g class="map-hostile-approach" stroke="#ff454d" stroke-width="2.3" fill="#240407" stroke-linejoin="round">' +
-    '<path d="M1000 130L945 148L1000 166L987 148Z"/>' +
-    '<path d="M1000 187L945 205L1000 223L987 205Z"/>' +
-    '<path d="M1000 244L945 262L1000 280L987 262Z"/>' +
+    nodeStart("tyranid-approach", "Alerta: frota Tyranid em aproximacao", 1110, 206, 90) +
+    '<g class="map-hostile-approach" stroke="#ff454d" stroke-width="2.4" fill="#240407" stroke-linejoin="round">' +
+    '<path d="M1160 138L1105 156L1160 174L1147 156Z"/>' +
+    '<path d="M1160 194L1105 212L1160 230L1147 212Z"/>' +
+    '<path d="M1160 250L1105 268L1160 286L1147 268Z"/>' +
     '</g>' +
     '<g fill="none" stroke="#ff6a70" stroke-width="1.1" stroke-dasharray="3 4">' +
-    '<path d="M1011 148h23M1011 205h23M1011 262h23"/>' +
+    '<path d="M1170 156h12M1170 212h12M1170 268h12"/>' +
     '</g>' +
-    '<text x="925" y="305" fill="#ff626a" font-size="12" font-weight="bold" letter-spacing="1">ALERTA XENO</text>' +
-    '<text x="925" y="321" fill="#ff858a" font-size="9" letter-spacing=".7">TYRANIDS / CHEGADA INDETERMINADA</text>' +
+    '<text x="1060" y="328" fill="#ff626a" font-size="12" font-weight="bold" letter-spacing="1">ALERTA XENO</text>' +
+    '<text x="1060" y="342" fill="#ff858a" font-size="9" letter-spacing=".7">TYRANIDS / ETA INDETERMINADO</text>' +
     nodeEnd()
   );
 
