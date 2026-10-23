@@ -277,3 +277,15 @@
     animation: none !important; transition: none !important;
   }
 }
+
+/* Designacao hostil: vermelho reservado exclusivamente a contatos inimigos. */
+#map-layer .map-hostile { filter:drop-shadow(0 0 5px #ff30308c); }
+#map-layer .map-hostile-ring { fill:none; stroke:#ff3c42; stroke-width:1.4; }
+#map-layer .map-hostile-ship { fill:#340507; stroke:#ff5256; stroke-width:2; stroke-linejoin:round; }
+#map-layer .map-hostile-detail { fill:none; stroke:#ff7678; stroke-width:1.4; stroke-linejoin:round; }
+#map-layer .map-hostile-leader { fill:none; stroke:#ed434a; stroke-width:1.1; stroke-dasharray:3 3; }
+#map-layer .map-hostile-label { fill:#ff686d; font-size:13px; font-weight:bold; letter-spacing:1px; paint-order:stroke; stroke:#170205; stroke-width:3px; }
+#map-layer .map-hostile-sub { fill:#ec656a; font-size:9px; letter-spacing:1px; paint-order:stroke; stroke:#170205; stroke-width:2px; }
+#map-layer .map-node:has(.map-hostile):hover .map-hostile-ship,
+#map-layer .map-node:has(.map-hostile).is-selected .map-hostile-ship { fill:#8c1018; }
+#map-layer .map-node:has(.map-hostile) .map-selection { stroke:#ff5157; }
