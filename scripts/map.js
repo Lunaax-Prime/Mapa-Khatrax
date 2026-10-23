@@ -210,15 +210,20 @@
     nodeEnd()
   );
 
-  // Alerta de frota Tyranid na borda leste do mapa, com tres sinais de aproximacao.
+  // Tres vetores vermelhos de aproximacao Tyranid, dentro da area visivel do Auspex.
   nodes.push(
-    nodeStart("tyranid-approach", "Aproximacao de Frota Xeno Tyranid", 1060, 214, 110) +
-    '<g class="map-hostile-approach">' +
-    '<path d="M1095 137L1040 155L1095 173L1081 155Z M1095 193L1040 211L1095 229L1081 211Z M1095 249L1040 267L1095 285L1081 267Z" fill="#2b060a" stroke="#ff4149" stroke-width="2.5" stroke-linejoin="round"/>' +
-    '<path d="M1106 155h-9M1106 211h-9M1106 267h-9" fill="none" stroke="#ff6169" stroke-width="1.3" stroke-dasharray="3 3"/>' +
-    '<text x="1062" y="310" text-anchor="middle" fill="#ff686e" font-size="12" font-weight="bold" letter-spacing="1">ALERTA XENO</text>' +
-    '<text x="1062" y="324" text-anchor="middle" fill="#ef7378" font-size="9" letter-spacing=".8">FROTA TYRANID / ETA DESCONHECIDO</text>' +
-    '</g>' + nodeEnd()
+    nodeStart("tyranid-approach", "Alerta: frota Tyranid em aproximacao", 950, 215, 105) +
+    '<g class="map-hostile-approach" stroke="#ff454d" stroke-width="2.3" fill="#240407" stroke-linejoin="round">' +
+    '<path d="M1000 130L945 148L1000 166L987 148Z"/>' +
+    '<path d="M1000 187L945 205L1000 223L987 205Z"/>' +
+    '<path d="M1000 244L945 262L1000 280L987 262Z"/>' +
+    '</g>' +
+    '<g fill="none" stroke="#ff6a70" stroke-width="1.1" stroke-dasharray="3 4">' +
+    '<path d="M1011 148h23M1011 205h23M1011 262h23"/>' +
+    '</g>' +
+    '<text x="925" y="305" fill="#ff626a" font-size="12" font-weight="bold" letter-spacing="1">ALERTA XENO</text>' +
+    '<text x="925" y="321" fill="#ff858a" font-size="9" letter-spacing=".7">TYRANIDS / CHEGADA INDETERMINADA</text>' +
+    nodeEnd()
   );
 
   var title = [
