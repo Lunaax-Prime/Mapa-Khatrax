@@ -30,6 +30,10 @@
       type: "GLACIES MUNDUS / TEMPLOS-ARQUIVO",
       faction: "Adeptus Mechanicus / Crimson Prowlers",
       text: "Além de seus desertos congelados, Tetrius guarda cidades austeras e templos de pesquisa do Mechanicus. Na vastidão glacial ergue-se a fortaleza-monastério dos Crimson Prowlers, capítulo herdeiro dos Space Wolves." },
+    { id: "armada-xeno", name: "Armada Xeno",
+      type: "CONTATO HOSTIL / FROTA ELDAR",
+      faction: "Eldar / Forcas Xenos Hostis",
+      text: "Uma armada Eldar conduz ataques contra barcacas imperiais nas rotas do Sistema Khatrax. Seus navios foram responsaveis pela destruicao dos reforcos da Steel Legion que estavam a caminho para auxiliar as forcas imperiais. A presenca da frota representa uma ameaca imediata ao trafego e as linhas de suprimento do Imperium." },
     { id: "galgans", name: "Galgan's Reach",
       type: "ARSENAL NAVAL / ANCORADOURO SAGRADO",
       faction: "Frotas Imperiais / Imperium Nihilus",
@@ -180,6 +184,21 @@
     shipyard(reach.x,reach.y) +
     '<path class="map-leader" d="M849 482l35 31h57"/>' +
     label(950,509,"GALGAN'S REACH","GRAND NAVAL FORGE") + nodeEnd()
+  );
+
+  // Contato hostil em vermelho: armada Eldar nas rotas imperiais.
+  nodes.push(
+    nodeStart("armada-xeno", "Armada Xeno", 690, 275, 33) +
+    '<g class="map-hostile" transform="translate(690 275)">' +
+    '<circle class="map-hostile-ring" r="27" stroke-dasharray="5 5"/>' +
+    '<path class="map-hostile-ship" d="M0-24L8-8 24-4 11 2 16 16 0 10-16 16-11 2-24-4-8-8Z"/>' +
+    '<path class="map-hostile-detail" d="M0-20V9M-18-4H18M-10 5L0-2 10 5M-7 14L0 19 7 14"/>' +
+    '<path class="map-hostile-detail" d="M-29-16h-9v10m67-10h9v10m-67 22h-9V6m67 10h9V6"/>' +
+    '</g>' +
+    '<path class="map-hostile-leader" d="M714 259l22-23h21"/>' +
+    '<text class="map-hostile-label" x="763" y="233">ARMADA XENO</text>' +
+    '<text class="map-hostile-sub" x="763" y="246">ELDAR / CONTATO HOSTIL</text>' +
+    nodeEnd()
   );
 
   var title = [
