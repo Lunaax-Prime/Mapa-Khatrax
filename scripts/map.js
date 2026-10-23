@@ -34,6 +34,10 @@
       type: "CONTATO HOSTIL / FROTA ELDAR",
       faction: "Eldar / Forcas Xenos Hostis",
       text: "Uma armada Eldar conduz ataques contra barcacas imperiais nas rotas do Sistema Khatrax. Seus navios foram responsaveis pela destruicao dos reforcos da Steel Legion que estavam a caminho para auxiliar as forcas imperiais. A presenca da frota representa uma ameaca imediata ao trafego e as linhas de suprimento do Imperium." },
+    { id: "tyranid-approach", name: "Aproximacao de Frota Xeno",
+      type: "ALERTA ESTRATEGICO / FROTA TYRANID",
+      faction: "Tyranids / Ameaca Xenos",
+      text: "Os sensores de longo alcance detectaram sinais de uma frota Tyranid se aproximando do Sistema Khatrax. A origem exata, a dimensao da ameaca e o momento de sua chegada permanecem indeterminados. Nao ha previsao confiavel para a entrada da frota no sistema. O comando imperial mantem o alerta diante da aproximacao xenos." },
     { id: "galgans", name: "Galgan's Reach",
       type: "ARSENAL NAVAL / ANCORADOURO SAGRADO",
       faction: "Frotas Imperiais / Imperium Nihilus",
@@ -204,6 +208,17 @@
     '<text class="map-hostile-label" x="763" y="233">ARMADA XENO</text>' +
     '<text class="map-hostile-sub" x="763" y="246">ELDAR / CONTATO HOSTIL</text>' +
     nodeEnd()
+  );
+
+  // Alerta de frota Tyranid na borda leste do mapa, com tres sinais de aproximacao.
+  nodes.push(
+    nodeStart("tyranid-approach", "Aproximacao de Frota Xeno Tyranid", 1080, 214, 95) +
+    '<g class="map-hostile-approach">' +
+    '<path d="M1104 143l-38 12 38 12 -9-12Z M1104 204l-38 12 38 12 -9-12Z M1104 265l-38 12 38 12 -9-12Z" fill="#2b060a" stroke="#ff4149" stroke-width="2.5" stroke-linejoin="round"/>' +
+    '<path d="M1120 155h-10M1120 216h-10M1120 277h-10" fill="none" stroke="#ff6169" stroke-width="1.3" stroke-dasharray="3 3"/>' +
+    '<text x="1030" y="309" text-anchor="middle" fill="#ff686e" font-size="12" font-weight="bold" letter-spacing="1">ALERTA XENO</text>' +
+    '<text x="1030" y="323" text-anchor="middle" fill="#ef7378" font-size="9" letter-spacing=".8">FROTA TYRANID / ETA DESCONHECIDO</text>' +
+    '</g>' + nodeEnd()
   );
 
   var title = [
