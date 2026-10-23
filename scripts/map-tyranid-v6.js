@@ -218,7 +218,6 @@
     '<path d="M1183 211L1134 228L1183 245L1170 228Z"/>' +
     '<path d="M1183 269L1134 286L1183 303L1170 286Z"/>' +
     '</g>' +
-    '<text x="1124" y="326" fill="#ff777d" font-size="10" font-weight="bold" letter-spacing=".5">XENO // ALERTA</text>' +
     nodeEnd()
   );
 
