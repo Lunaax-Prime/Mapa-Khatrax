@@ -20,8 +20,8 @@
       text: "Nos abismos gasosos de Secundus operam santuários de refino, onde o combustível é extraído em perpétua penitência mecânica. Duas luas sustentam seu tributo: Heliphant I, a mina, e Heliophant II, a forja." },
     { id: "heliphant-i", name: "Heliphant I",
       type: "SATELLITA FERRUM / MUNDO DE EXTRAÇÃO",
-      faction: "Corporação Mineira / Ofícios de Extração",
-      text: "Sob uma crosta de rocha e cinzas, a primeira lua de Secundus entrega seus minérios em dízimos sem fim. Cada veio rompido alimenta os fornos, docas e máquinas sacras do sistema." },
+      faction: "Culto Genestealer / Insurgencia Xenos",
+      text: "As minas de Heliphant I estao em revolta. Um culto dos Genestealers infiltrou as comunidades de mineradores e conduz uma insurreicao contra a autoridade imperial. As operacoes de extracao e o envio de dizimos estao comprometidos, enquanto as forcas leais tentam conter a infestacao xenos." },
     { id: "heliophant-ii", name: "Heliophant II",
       type: "FORGIA SATELLITA / DOMÍNIO DE MARTE",
       faction: "Adeptus Mechanicus / Sacerdócio de Marte",
@@ -163,9 +163,9 @@
   );
   nodes.push(
     nodeStart("heliphant-i","Heliphant I",heliphant.x,heliphant.y,21) +
-    moon(heliphant.x,heliphant.y,10,false) +
+    '<g class="map-hostile-moon">' + moon(heliphant.x,heliphant.y,10,false) + '</g>' +
     '<path class="map-leader" d="M' + (heliphant.x-9) + ' ' + (heliphant.y-8) + 'l-17-21h-50"/>' +
-    label(506,333,"HELIPHANT I","MINING MOON / ORE TITHES",true) + nodeEnd()
+    '<g class="map-hostile-moon">' + label(506,333,"HELIPHANT I","GENESTEALER CULT / MINING REVOLT",true) + '</g>' + nodeEnd()
   );
   nodes.push(
     nodeStart("heliophant-ii","Heliophant II",heliophant.x,heliophant.y,21) +
